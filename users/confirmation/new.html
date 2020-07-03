@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<script>
+  if (typeof mixpanel === 'undefined') {
+    (function(e,b){if(!b.__SV){
+    var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+    typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+    b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+  }
+  mixpanel.init("68f8a14bb57bdaa90a3233f36e32d745");
+</script>
+
+
+
+
+<script>
+  window.Thinkific = window.Thinkific || {};
+  window.Thinkific.current_user = null;
+</script>
+
+<script>
+  window.Thinkific = window.Thinkific || {};
+  window.Thinkific.translations = {"en.js_app_upload_image":"Preview (Click 'Save Changes' to keep this change)","en.js_app_checkout_coupons_please_wait":"Please wait...","en.js_app_checkout_manager_sign_up":"Sign up with LinkedIn","en.js_app_checkout_manager_sign_in":"Sign in with LinkedIn","en.js_app_invalid_coupon_code":"Invalid coupon code","en.js_app_checkout_please_wait":"Please wait...","en.js_app_payment_errors.invalid_number":"The card number is not a valid credit card number.","en.js_app_payment_errors.invalid_expiry_month":"The card's expiration month is invalid.","en.js_app_payment_errors.invalid_expiry_year":"The card's expiration year is invalid.","en.js_app_payment_errors.invalid_cvc":"The card's security code is invalid.","en.js_app_payment_errors.incorrect_number":"The card's number is incorrect.","en.js_app_payment_errors.expired_card":"The card has expired.","en.js_app_payment_errors.incorrect_cvc":"The card's security code is incorrect.","en.js_app_payment_errors.incorrect_zip":"The card's zip code failed validation.","en.js_app_payment_errors.card_declined":"The payment was declined. Please contact your bank and try again.","en.js_app_payment_errors.missing":"We couldn’t find a credit card for this customer.","en.js_app_payment_errors.processing_error":"An error occurred while processing the card.","en.js_app_payment_errors.incomplete_number":"The card number is incomplete.","en.js_app_payment_errors.incomplete_expiry":"The expiry date is incomplete.","en.js_app_payment_errors.incomplete_cvc":"The security code is incomplete.","en.js_app_payment_errors.payment_intent_authentication_failure":"Secure authentication couldn’t be completed. Please try again.","en.js_app_payment_errors.setup_intent_authentication_failure":"Secure authentication couldn’t be completed. Please try again.","en.js_app_payment_errors.transaction_declined":"The transaction was declined. Please try again.","en.js_app_payment_errors.add_card_contact_bank_error":"The card could not be added. Please contact your bank.","en.js_app_payment_errors.add_card_try_again_error":"The card could not be added. Please try again."};
+  
+  window.Thinkific.t = function(key) {
+    var locale = "en";
+    var localeAndKey = locale + key
+    translation = this.translations[localeAndKey];
+    if (!translation) {
+      // Currently stripe credit card form uses a regex to test for this prefix:
+      // `Translation missing`, to indicate that the translation does not exist.
+      // If this is changed then the regex in
+      // app/assets/javascripts/libs/stripe_credit_card_form.js needs to change too.
+      return "Translation missing: " + localeAndKey + "!"
+    }
+    return translation;
+  };
+</script>
+
+<title>Corporate Finance Institute® (CFI)</title>
+
+
+<!--[if lt IE 9]>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" type="image/x-icon" href="https://s3.amazonaws.com/thinkific/site_themes/favicon_000/004/670/1570547508.original.png?1570547508" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="luvpW/F2TNt9wTokYMiDXcPOIQ3+FeNgBx1tQcqC7h3vyH+t8xGa4qvUgL8XU4bxGsHTUi3G70j5qID1LZcc1g==" />
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  var tcd = "thinkific.com";
+  
+  ga('create', 'UA-30557184-1', 'auto', { 'cookieDomain': tcd });
+  ga('send', 'pageview');
+  
+  var tenantGoogleAnalyticsKey = "UA-69521210-1";
+  
+  if(tenantGoogleAnalyticsKey) {
+    var tenantCD = "courses.corporatefinanceinstitute.com";
+    ga('create', tenantGoogleAnalyticsKey, 'auto', { 'name': 'tenantTracker', 'cookieDomain': tenantCD });
+    ga('tenantTracker.send', 'pageview');
+  }
+</script>
+
+
+
+<link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/application-0c2737378bacd600efa343c88a355d8c1414268ceca70e925c436a89f648c311.css" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="https://thinkific.s3.amazonaws.com/themes/theme-4670-f7ffcafe54f7d34614ed6f6e617be1b7.css" />
+<link href='https://cdn.thinkific.com/assets/toga-icons/2.17.0/toga-icons.css' rel='stylesheet' type='text/css'>
+<script src="https://assets.thinkific.com/assets/application-429452054fd6d476904a8c5eb41a880001a5af49f9c617b280fb91ca054e687c.js"></script>
+<script src="https://assets.thinkific.com/assets/course-review-rating-319be43b94bd2aff31595dbaf01656b45d3ad5b67fb6d19f1cdd7d7561520271.js"></script>
+<style type='text/css'>
+.thinkific-badge {
+
+  display: none;
+
+}
+
+
+
+.l-thinkific-badge {
+
+  display: none;
+
+}
+</style>
+
+</head>
+<body id="devise-confirmations" class="new corporate-finance-institute-tenant"><div id='wrap'>
+<nav class='navbar navbar-default'>
+<div class='column'>
+<div class='navbar-header'>
+<button class='navbar-toggle' data-target='.navbar-collapse' data-toggle='collapse' type='button'>
+Menu
+</button>
+<a class="navbar-logo" href="https://corporatefinanceinstitute.com"><img class="logo" id="logo" src="https://s3.amazonaws.com/thinkific/site_themes/logo_000/004/670/1487098262.medium.jpg?1487098262" alt="1487098262.medium" /></a>
+</div>
+<div class='collapse navbar-collapse'>
+<ul class='nav navbar-nav navbar-left'>
+<li>
+<a href="../../collections.html">View all courses
+</a></li>
+<li>
+<a target="_parent" href="http://www.corporatefinanceinstitute.com/about">About</a>
+</li>
+<li>
+<a target="_parent" href="http://www.corporatefinanceinstitute.com/resources">Resources</a>
+</li>
+
+</ul>
+<ul class='nav navbar-nav navbar-right'>
+
+<li class='sign-in'>
+<a class="my-account" href="../sign_in.html"><span class='user-sign-in'>Sign In</span>
+</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<div id='data-store'>
+
+</div>
+<div id='page-content'>
+<h2>Resend confirmation instructions</h2>
+
+<form class="new_user" id="new_user" action="/users/confirmation" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="d7V8yL1vJxDpZx+z8jvDZ/lsGNSRWS9VQAtCiyFRinEOluo+vwjxKT9ypSiFoMbLIGPqi0KKI32+vq8/xkR4ug==" />
+  
+
+  <div><label for="user_email">Email</label><br />
+  <input autofocus="autofocus" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" type="email" value="" name="user[email]" id="user_email" /></div>
+
+  <div><input type="submit" name="commit" value="Resend confirmation instructions" data-disable-with="Resend confirmation instructions" /></div>
+</form>
+<!-- - if controller_name != 'sessions' -->
+<!-- %p -->
+<!-- Already have an account? -->
+<!-- = link_to "Sign in", new_session_path(resource_name) -->
+<a class="forgot-password" href="../password/new.html">Forgot Password?</a>
+
+
+</div>
+<div id='push'></div>
+</div>
+<footer class='footer hidden-print' id='global-footer'>
+<div class='container'>
+<div class='row footer-top-bar'>
+<div class='col-sm-6 clearfix'>
+<div class='footer-brand-description'>
+<span>
+&copy;
+Copyright
+Corporate Finance Institute™ 2020
+</span>
+</div>
+</div>
+<div class='col-sm-6'>
+<ul class='footer-links unstyle'>
+<li>
+<a href="https://courses.corporatefinanceinstitute.com/">Home</a>
+</li>
+<li>
+<a data-uv-trigger='true' href='mailto:learning@corporatefinanceinstitute.com'>
+Support
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='row footer-badges'>
+<div class='col-xs-7'>
+
+</div>
+<div class='col-xs-5'>
+<div class='site-badge hidden-print'>
+<a class='btn-site-badge' data-uv-trigger href='mailto:learning@corporatefinanceinstitute.com' rel='noreferrer noopener' target='_blank'>
+<i class='icon-help'></i>
+</a>
+</div>
+
+</div>
+</div>
+</div>
+</footer>
+
+<!-- /#notifications has 4 states - .success, .error, .warning, .info(default) -->
+<div id='notifications'>
+
+
+</div>
+
+
+
+
+
+<div id='fb-root'></div>
+<script>
+  // Facebook 
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=284275161658450";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  
+  // Twitter 
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  
+  // Google+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script>
+  $(function() {
+    var isMobile = false;
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      isMobile = true;
+    }
+    if(!isMobile) {
+      if(window.opener && window.opener !== window &&
+        window.name && window.name == "__thinkific-sales-widget-product__") {
+        var url = window.location.href;
+        $(".move-this-party__btn").attr("href", url).attr("target", "_blank").on("click", function() {
+          setTimeout(function() {
+            window.close();
+          }, 500);
+        });
+        $(".move-this-party__container").removeClass("hidden");
+      }
+      $(".close-move-this-party__btn").on("click", function(e) {
+        e.preventDefault();
+        $(".move-this-party__container").addClass("hidden");
+      });
+    }
+  });
+</script>
+<div class='move-this-party__container hidden'>
+<div class='row move-this-party__text'>
+<div class='col-xs-12'>
+We suggest moving this party over to a full size window.
+<br>
+You'll enjoy it way more.
+</div>
+</div>
+<div class='row move-this-party__buttons'>
+<div class='col-xs-4'>
+<a class='close-move-this-party__btn btn pull-left' href='new.html#'>
+Close
+</a>
+</div>
+<div class='col-xs-8'>
+<a class='move-this-party__btn btn btn-success pull-right' href='new.html#'>
+Go Fullscreen
+</a>
+</div>
+</div>
+</div>
+
+
+<div class='site-footer-code'>
+
+<script>
+
+var analyticsUserID = sessionStorage.getItem("analyticsUserID");
+var analyticsUserStatus = sessionStorage.getItem("analyticsUserStatus");
+var analyticsPageType = sessionStorage.getItem("analyticsPageType");
+var analyticsCourseId = sessionStorage.getItem("analyticsCourseId");
+var analyticsCourseAction = sessionStorage.getItem("analyticsCourseAction");
+
+window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      'userStatus': analyticsUserStatus,
+      'userID': analyticsUserID,
+      'postAuthor': 'Courses'
+      
+    });
+	
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PRVF2Q');</script>
+<!-- End Google Tag Manager -->
+
+<!-- New Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PS9DC56');</script>
+<!-- End New Google Tag Manager -->
+
+
+<!-- Course Landing Pages DL Event --> 
+<script>
+    if(analyticsPageType == "courseLP"){
+		gtmCoursePrice = document.querySelector(".course_prise").innerText;
+		gtmCoursePrice == "Free" ? gtmCoursePrice : gtmCoursePrice = gtmCoursePrice.replace(/^\s+/g, '').substr(1);
+        gtmProductName = document.querySelector(".product__title").innerText;
+		dataLayer.push({
+		  'event': 'productLpView',
+		  'productType': 'Course',
+		  'productName': gtmProductName,
+		  'productPrice': gtmCoursePrice,
+		  'ecommerce': {
+			'detail': {
+			  'products': [{
+				'name': gtmProductName,
+				'price': gtmCoursePrice,
+			   }]
+			 }
+		   }
+		});
+	}
+	if(analyticsPageType == "checkout"){
+		dataLayer.push({event:'checkoutCourse'});
+	}
+	if(analyticsPageType == "bundleLP"){
+        gtmProductName = document.querySelector(".product__title").innerText;	    
+		dataLayer.push({
+		  'event': 'productLpView',
+		  'productType': 'Bundle',
+		  'productName': gtmProductName,		  
+
+		});
+	}
+	
+	if(analyticsCourseAction === "freeEnroll"){
+	    dataLayer.push({
+            'event': 'checkout',
+            'ecommerce': {
+             'checkout': {
+                'actionField': 3,
+                 'products': [{
+                   'id': analyticsCourseId,
+                   'price':0,
+                   'quantity': 1
+                }]
+            }
+        }
+    });  
+	    
+	}
+	
+	sessionStorage.setItem("analyticsPageType", "");
+	sessionStorage.setItem("analyticsCourseAction", "");
+	
+	
+</script>
+<!-- End of Course Landing Pages DL Event --> 
+
+
+<!-- Google Code for Courses - All Pages -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 938316589;
+var google_conversion_label = "4vaGCMep1HIQraa2vwM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938316589/?value=1.00&currency_code=CAD&label=4vaGCMep1HIQraa2vwM&guid=ON&script=0"/>
+</div>
+</noscript>
+
+
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"26068827"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+
+
+<script type="text/javascript">
+_linkedin_partner_id = "490258";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=490258&fmt=gif" />
+</noscript>
+
+<!-- Hotjar Tracking Code for https://corporatefinanceinstitute.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1473096,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    //We only care about browsers that report themselves as being Chrome
+    //We only apply this when the browser supports the CSS necessary to
+    //mask the plain text.
+    //We only apply this when NOT an SSL connection.
+    var isChromeBrowser = /crmo|chrom(e|ium)/i.test(navigator.userAgent);
+    var supportsCssProperty = '-webkit-text-security' in document.body.style;
+    var isNotSecure = document.location.protocol !== 'https:'
+    if (isChromeBrowser && isNotSecure && supportsCssProperty) {
+      var password_fields = $('input[type="password"]');
+      if (password_fields) {
+        password_fields.attr({type:"text"});
+        password_fields.css("-webkit-text-security", "disc")
+      }
+    }
+  });
+</script>
+
+</body></html>

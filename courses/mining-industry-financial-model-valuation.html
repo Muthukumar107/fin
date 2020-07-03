@@ -1,0 +1,3951 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="shortcut icon" type="image/x-icon" href="https://s3.amazonaws.com/thinkific/site_themes/favicon_000/004/670/1570547508.original.png?1570547508" />
+<link rel="apple-touch-icon" type="image/x-icon" href="https://s3.amazonaws.com/thinkific/site_themes/favicon_000/004/670/1570547508.original.png?1570547508" />
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="/h/PDZYiZyl7TH02wqUIaBVAUned39CeDrr/3qPJhLAIbO4qezMHc3/112bXuvNi9gdWE29uAMKcbcwizq2rfQ==" />
+<link rel="stylesheet" media="all" href="https://assets.thinkific.com/assets/custom_site_theme_required-9736a255d5a7320f65c5ae5217af8e93be5496ab1d9c4cb3825cd93398183032.css" />
+<script>
+  if (typeof mixpanel === 'undefined') {
+    (function(e,b){if(!b.__SV){
+    var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+    typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+    b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+  }
+  mixpanel.init("68f8a14bb57bdaa90a3233f36e32d745");
+</script>
+
+
+
+
+
+<script>
+  window.Thinkific = window.Thinkific || {};
+  window.Thinkific.current_user = null;
+</script>
+
+<script>
+  window.Thinkific = window.Thinkific || {};
+  window.Thinkific.translations = {"en.js_app_upload_image":"Preview (Click 'Save Changes' to keep this change)","en.js_app_checkout_coupons_please_wait":"Please wait...","en.js_app_checkout_manager_sign_up":"Sign up with LinkedIn","en.js_app_checkout_manager_sign_in":"Sign in with LinkedIn","en.js_app_invalid_coupon_code":"Invalid coupon code","en.js_app_checkout_please_wait":"Please wait...","en.js_app_payment_errors.invalid_number":"The card number is not a valid credit card number.","en.js_app_payment_errors.invalid_expiry_month":"The card's expiration month is invalid.","en.js_app_payment_errors.invalid_expiry_year":"The card's expiration year is invalid.","en.js_app_payment_errors.invalid_cvc":"The card's security code is invalid.","en.js_app_payment_errors.incorrect_number":"The card's number is incorrect.","en.js_app_payment_errors.expired_card":"The card has expired.","en.js_app_payment_errors.incorrect_cvc":"The card's security code is incorrect.","en.js_app_payment_errors.incorrect_zip":"The card's zip code failed validation.","en.js_app_payment_errors.card_declined":"The payment was declined. Please contact your bank and try again.","en.js_app_payment_errors.missing":"We couldn’t find a credit card for this customer.","en.js_app_payment_errors.processing_error":"An error occurred while processing the card.","en.js_app_payment_errors.incomplete_number":"The card number is incomplete.","en.js_app_payment_errors.incomplete_expiry":"The expiry date is incomplete.","en.js_app_payment_errors.incomplete_cvc":"The security code is incomplete.","en.js_app_payment_errors.payment_intent_authentication_failure":"Secure authentication couldn’t be completed. Please try again.","en.js_app_payment_errors.setup_intent_authentication_failure":"Secure authentication couldn’t be completed. Please try again.","en.js_app_payment_errors.transaction_declined":"The transaction was declined. Please try again.","en.js_app_payment_errors.add_card_contact_bank_error":"The card could not be added. Please contact your bank.","en.js_app_payment_errors.add_card_try_again_error":"The card could not be added. Please try again."};
+  
+  window.Thinkific.t = function(key) {
+    var locale = "en";
+    var localeAndKey = locale + key
+    translation = this.translations[localeAndKey];
+    if (!translation) {
+      // Currently stripe credit card form uses a regex to test for this prefix:
+      // `Translation missing`, to indicate that the translation does not exist.
+      // If this is changed then the regex in
+      // app/assets/javascripts/libs/stripe_credit_card_form.js needs to change too.
+      return "Translation missing: " + localeAndKey + "!"
+    }
+    return translation;
+  };
+</script>
+
+<link href='https://cdn.thinkific.com/assets/toga-icons/2.17.0/toga-icons.css' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  var tcd = "thinkific.com";
+  
+  ga('create', 'UA-30557184-1', 'auto', { 'cookieDomain': tcd });
+  ga('send', 'pageview');
+  
+  var tenantGoogleAnalyticsKey = "UA-69521210-1";
+  
+  if(tenantGoogleAnalyticsKey) {
+    var tenantCD = "courses.corporatefinanceinstitute.com";
+    ga('create', tenantGoogleAnalyticsKey, 'auto', { 'name': 'tenantTracker', 'cookieDomain': tenantCD });
+    ga('tenantTracker.send', 'pageview');
+  }
+</script>
+
+<script src="https://assets.thinkific.com/assets/application-429452054fd6d476904a8c5eb41a880001a5af49f9c617b280fb91ca054e687c.js"></script>
+<script src="https://assets.thinkific.com/assets/course-review-rating-319be43b94bd2aff31595dbaf01656b45d3ad5b67fb6d19f1cdd7d7561520271.js"></script>
+<script async src='https://fast.wistia.net/assets/external/E-v1.js' type='text/javascript'></script>
+
+<script type="application/ld+json">
+//<![CDATA[
+{"@context":"http://schema.org","@type":"Product","name":"Mining Financial Model \\u0026 Valuation","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":17},"review":[{"@type":"Review","author":{"@type":"Person","name":"Furkan Kasa"},"description":"I was doing research for a long time for my doctorate thesis. I have reviewed many video lessons and contents on the internet. There are not many sources and narrations about Mine Valuation, and those are clearly inferior. This course is truly a blessing for mining engineers who are concentrated in the field of finance. You should start absolutely without thinking.","name":"The Best Course Ever","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Ashok Kumar Mishra"},"description":"This particular course will add more flavour if the instructor spends more time in explaining certain assumptions taken in the model and its rationality. ","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":4,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Raushan Mamatkulov"},"description":"I really liked the course - well prepared, clear and crisp. ","name":"A great course, liked it. ","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Fraser Pogue"},"description":"I really appreciated the mining valuation course and the opportunity to better understand this sector in natural resources.","name":"Great Course","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Mninawe Mayekiso"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Anilton Fortes"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"KANNY SIBOZA"},"description":"This is a course that will bring me into my first job  ","name":"Appreciation","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Delbert Adivnovak"},"description":"Excellent mining example with full modeling and explanations of the calculations. Awesome work!. Great definitions and dynamic model!","name":"Mining Financial Model \u0026amp; Valuation","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"ARTURO SOSA CUERVO "},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Barbara Alvarez"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Teka Derick Tikum"},"description":"More Valuable than most Financial Modeling, Valuation courses in Mining, Petroleum,  Oil and Gas industries online. Skillful for professionals ","name":"Mining Financial model \u0026amp; Valuation ","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"brian millen"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Aarav Singh"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":4,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Brett Hannigan"},"description":"The course was challenging and extremely insightful and I would recommend the course to anyone interested in financial modelling and/or mining valuation!","name":"Insightful course on mining","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"barbara arnold"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Cara Nowen"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}},{"@type":"Review","author":{"@type":"Person","name":"Rustom Rupand"},"description":"","name":"","reviewRating":{"@type":"Rating","bestRating":5,"ratingValue":5,"worstRating":0}}],"image":"https://thinkific-import.s3.amazonaws.com/4670/MwrxXAOAQzCvAJgMKL2L_DgF974UnTmOIRTaTgF9Y_Mining-Financial-Modeling.jpg"}
+//]]>
+</script>
+<meta property="og:site_name" content="Corporate Finance Institute® (CFI)" />
+<meta property="og:title" content="Mining Financial Model &amp; Valuation" />
+<meta property="og:image" content="https://thinkific-import.s3.amazonaws.com/4670/MwrxXAOAQzCvAJgMKL2L_DgF974UnTmOIRTaTgF9Y_Mining-Financial-Modeling.jpg" />
+<meta property="og:url" content="https://courses.corporatefinanceinstitute.com/courses/mining-industry-financial-model-valuation" />
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="page-identifier" content="course_landing_page" course-banner-url="Mining Valuation & Financial Model">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+            <title>Mining Financial Modeling Course - Mining Valuation  | CFI</title>
+          
+
+
+    
+      <meta name="description" content="Looking to master the art of building a financial model to value a mining company in Excel? CFI's Mining Financial Model & Valuation course simulates evaluating an acquisition. ">
+    
+    
+
+    
+    
+
+  
+
+
+
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700">
+
+<link rel="stylesheet" href="https://thinkific.s3.amazonaws.com/themes/custom/4670-168856-7dbc65f9a2d54bfcdc7e4af08d7c6784.css">
+
+  
+
+    
+
+    
+
+    
+      <style type="text/css">.page-banner {
+          background:
+            linear-gradient(rgba(7.45%, 18.04%, 34.12%, 0.00), rgba(7.45%, 18.04%, 34.12%, 0.00)),
+            url("https://s3.amazonaws.com/thinkific/courses/showcase_000/015/5851592399004.original.jpg?1592399004");
+          background-size: cover;
+        }
+      </style>
+      <!--[if lte IE 9]>
+        <style type="text/css">.page-banner {
+            background: url("https://s3.amazonaws.com/thinkific/courses/showcase_000/015/5851592399004.original.jpg?1592399004");
+            background-size: cover;
+          }
+        </style>
+      <![endif]-->
+    
+  
+
+  
+
+  <style type="text/css">
+    .thinkific-badge {
+
+  display: none;
+
+}
+
+
+
+.l-thinkific-badge {
+
+  display: none;
+
+}
+  </style>
+
+
+  
+
+<!-- Start Visual Website Optimizer Asynchronous Code -->
+<script type='text/javascript'>
+var _vwo_clicks = 10
+var _vwo_code=(function(){
+var account_id=312783,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+/* DO NOT EDIT BELOW THIS LINE */
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+<!-- End Visual Website Optimizer Asynchronous Code -->
+
+<script type="text/javascript">
+    window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+      heap.load("191208708");
+</script>
+
+<script>
+  function getCookie(name) {
+      var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+function findGetParameter(parameterName) {
+  var result = null,
+      tmp = [];
+  location.search
+          .substr(1)
+          .split("&")
+          .forEach(function (item) {
+              tmp = item.split("=");
+              if (tmp[0] === parameterName) {
+                  result = decodeURIComponent(tmp[1]);
+              }
+          });
+  return result;
+}
+
+</script>
+  
+
+    
+
+    
+
+    
+    
+        
+            <script src="https://fast.wistia.net/static/E-v1.js"></script>
+            <script src="https://fast.wistia.net/static/popover-v1.js"></script>
+        
+    
+  
+
+
+  <link rel="stylesheet" href="https://cdn-themes.thinkific.com/4670/168856/f59pqFWVSe28R9KAT2ef_swiper.min.css">
+
+  
+
+
+
+<script>
+
+  sessionStorage.setItem("analyticsPageType", "");
+  sessionStorage.setItem("analyticsUserStatus", "Guest");
+  sessionStorage.setItem("analyticsUserID", "0");
+</script>
+
+
+<script src="https://use.fontawesome.com/0f4a3ec181.js"></script>
+<script>jQuery(document).ready(function(){if('undefined'!==typeof(blue_menu))jQuery('.head-wrap .header-wrapper').addClass('blue-menu')})</script>
+
+<!-- START Rakuten Marketing Tracking -->
+  <script type="text/javascript">
+    (function (url) {
+      /*Tracking Bootstrap Set Up DataLayer objects/properties here*/
+      if(!window.DataLayer){
+        window.DataLayer = {};
+      }
+      if(!DataLayer.events){
+        DataLayer.events = {};
+      }
+      DataLayer.events.SPIVersion = DataLayer.events.SPIVersion || "3.4";
+      DataLayer.events.SiteSection = "1";
+
+      var loc, ct = document.createElement("script");
+      ct.type = "text/javascript";
+      ct.async = true; ct.src = url; loc = document.getElementsByTagName('script')[0];
+      loc.parentNode.insertBefore(ct, loc);
+      }(document.location.protocol + "//tag.rmp.rakuten.com/121786.ct.js"));
+  </script>
+<!-- END Rakuten Marketing Tracking -->
+
+  </head>
+  <body >
+  
+    <div id="wrap">
+      
+
+<div class="hello-bar-wrapp">
+    
+
+    
+
+    <span class="bar-close">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </span>
+</div>
+
+      
+        
+
+
+<div class="header-menu-wrapper new-header ">
+	<header class="banner">
+		<div class="navbar-header clearfix">
+			<div class="container">
+				<div class="row flex-row">
+					<div class="left-side">
+						<a class="brand" href="https://corporatefinanceinstitute.com/">Corporate Finance Institute</a>
+						<div class="search-box">
+							<form role="search" method="get" class="search-form" action="https://corporatefinanceinstitute.com">
+      							<input class="search-field" placeholder="Search for courses, lessons, resources and more" name="s" autocomplete="off" type="search">
+								<i class="search-icon fa fa-search"></i>
+								<div class="cancel-button">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 25 25"><circle cx="12.5" cy="12.5" r="12.5" fill="#25A2AF"/><g transform="translate(6.818 6.818)"><path d="M0,0,11.418,10.21" transform="matrix(0.998, 0.07, -0.07, 0.998, 0.712, 0.219)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/><path d="M0,0,11.418,10.21" transform="translate(11.156) rotate(90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/></g></svg>
+								</div>
+								<div class="ajax-search-dropdown">
+								    <ul></ul>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+					<div class="right-side">
+              <div class="action-button-wrapper perspective-wrap">
+                <nav class="top-menu nav-primary">
+
+                  <div class="menu-desktop">
+                      <ul id="menu-header-menu-variation-2" class="nav navbar-nav">
+                          <li class="active menu-item menu-item-has-children menu-courses-programs">
+                              <a href="../collections.html" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Courses &amp; Programs</span></a>
+
+                              <ul class="sub-menu">
+                                  <div class="dropdown-container">
+                                      <div class="dropdown-row">
+
+                                        <li class="menu-item menu-item-has-children menu-certification-programs"><a href="https://corporatefinanceinstitute.com/certifications/" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Certification Programs</span></a>
+                                            <ul class="sub-menu">
+                                              <li class="menu-item menu-financial-modeling-valuation-fmva"><a href="https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Financial Modeling &amp; Valuation (FMVA)®</span></a></li>
+                                              <li class="menu-item menu-certified-banking"><a href="https://corporatefinanceinstitute.com/certifications/certified-banking-credit-analyst-certification-cbca/" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Certified Banking &amp; Credit Analyst (CBCA)™</span></a></li>
+                                            </ul>
+                                          </li>
+                                        <li class="unclickable menu-item menu-item-has-children menu-course-bundles"><a class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Course Bundles</span></a>
+                                            <ul class="sub-menu">
+                                              <li class="menu-item menu-machine-learning-python"><a href="../collections/machine-learning.html" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Machine Learning &amp; Python</span></a></li>
+                                              <li class="mobile-button menu-item menu-course-catalog"><a href="../collections.html" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Course Catalog</span></a></li>
+                                            </ul>
+                                          </li>
+                                        <li class="button menu-item menu-full-catalog"><a href="../collections.html" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">Full Catalog</span></a></li>
+                                      </div>
+                                  </div>
+                              </ul>
+                          </li>
+                          <li class="menu-item menu-for-business"><a href="https://corporatefinanceinstitute.com/corporate-training/" class="menu-image-title-after"><span class="menu-image-title-after menu-image-title">For Business</span></a></li>
+                      </ul>
+                  </div>
+
+                    <div class="account-links">
+                        
+                          <div class="thinkific-logged-out">
+                              <div class="thinkific-link sign-in">
+                                  <a href="../users/sign_in.html" rel="nofollow">Sign In</a>
+                              </div>
+
+                              <a href="../users/sign_up.html" class="btn-main">Get Started</a>
+                          </div>
+                        
+                    </div>
+                      
+                  </nav>
+              </div>
+
+            <button type="button" class="navbar-toggle hamburger hamburger--squeeze collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
+							</span>
+						</button>
+                        
+          </div>
+				</div>
+			</div>
+		</div>
+        <nav class="nav-primary navbar-collapse collapse " role="navigation">
+              <div class="container">
+                <div class="row">
+                  <div class="search-box">
+                      <form role="search" method="get" class="search-form" action="https://corporatefinanceinstitute.com/">
+                          <div class="search-wrapper">
+                            <i class="search-icon fa fa-search"></i>
+                            <input class="search-field" placeholder="Search" name="s" required="" type="search">
+                          </div>
+                      </form>
+                  </div>
+                  
+                  <nav class="top-menu">
+                    <ul id="menu-header-menu-variation-3" class="nav navbar-nav">
+                    
+                        
+                        
+                        <li class="menu-item menu-item-has-children menu-courses-programs">
+                            <a href="../collections.html">Courses &amp; Programs</a>
+                            <ul class="sub-menu">
+                                <div class="dropdown-container">
+                                    <div class="dropdown-row">
+                                        <li class="menu-item menu-item-has-children menu-certification-programs">
+                                            <a href="https://corporatefinanceinstitute.com/certifications/">Certification Programs</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-financial-modeling-valuation-fmva">
+                                                    <a href="https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/">Financial Modeling &amp; Valuation (FMVA)®</a>
+                                                </li>
+                                                <li class="menu-item menu-certified-banking">
+                                                    <a href="https://corporatefinanceinstitute.com/certifications/certified-banking-credit-analyst-certification-cbca/">Certified Banking &amp; Credit Analyst (CBCA)™</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="unclickable menu-item menu-item-has-children menu-course-bundles">
+                                            <a href="mining-industry-financial-model-valuation.html#">Course Bundles</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-machine-learning-python">
+                                                    <a href="../collections/machine-learning.html">Machine Learning &amp; Python</a>
+                                                </li>
+                                                <li class="mobile-button menu-item menu-course-catalog">
+                                                    <a href="../collections.html">Course Catalog</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="button menu-item menu-full-catalog">
+                                            <a href="../collections.html">Full Catalog</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item menu-for-business">
+                            <a href="https://corporatefinanceinstitute.com/corporate-training/">For Business</a>
+                        </li>
+                    </ul>
+                    
+                    
+                        <a href="../users/sign_in.html" rel="nofollow" class="thinkific-link">
+                            Sign In
+                        </a>
+                        <a href="../users/sign_up.html" class="btn-main btn-default">Get Started</a>
+                    
+                    </nav>
+                </div>
+            </div>
+        </nav>
+	</header>
+</div>
+
+<script type="text/javascript">
+	$('.nav-primary .search-box .search-icon, .splash .search-form i, .navbar-header .search-form .search-icon').on('click', function() {
+		if ($(this).siblings('.search-field').val()) {
+			$(this).parents('.search-form').submit();
+		}
+		else {
+			$(this).siblings('.search-field').focus();
+		}
+	});
+
+	jQuery('button.navbar-toggle.hamburger.hamburger--squeeze').click(function () {
+		jQuery(this).toggleClass('is-active');
+	});
+
+	$('.banner nav').on('show.bs.collapse hidden.bs.collapse', function () {
+		$('.header-menu-wrapper').toggleClass('is-active');
+		$('body').toggleClass('hide-scroll');
+
+		if ($('body').hasClass('hide-scroll')) {
+			$('body').css({"margin-left": -window.scrollbar_width / 2});
+		}
+		else {
+			$('body').css({"margin-left": 0});
+		}
+	});
+
+	$('.banner nav').on('shown.bs.collapse hidden.bs.collapse', function () {
+		$('header .nav-primary').toggleClass('scroll-auto');
+	});
+
+	function header_fixed_init() {
+		var top_offset = 0;
+		var admin_bar_height = 0;
+		if ($('.hello-bar').length && !$('.hello-bar').hasClass('closed')) {
+			top_offset += $('.hello-bar').outerHeight(true);
+		}
+		if ($(document).scrollTop() > top_offset) {
+			$('.header-menu-wrapper').addClass('fixed');
+		}
+		else {
+			$('.header-menu-wrapper').removeClass('fixed');
+			$('.header-menu-wrapper').removeAttr('style');
+		}
+	}
+	header_fixed_init();
+
+	$(window).scroll(function () {
+		header_fixed_init();
+	});
+
+
+	$(window).on('load', function () {
+		if ('undefined' !== typeof (blue_menu)) {
+			$('.header-menu-wrapper').addClass('blue-menu');
+		}
+	});
+	
+	$(document).keyup(function (e) {
+        if (e.key === "Escape") {
+            if ($('.navbar-toggle').hasClass('is-active')) {
+                $('.navbar-toggle').click();
+            }
+        }
+    });
+    
+    
+     // Header menu-item sub-menu toggler
+    $(".header-menu-wrapper header .nav-primary .nav > .menu-item > a").on(
+      "click",
+      function(e) {
+        if ($(window).width() < 767) {
+          var item = $(this).closest(".menu-item");
+          if (item.find(" .sub-menu").length) {
+            e.preventDefault();
+            item.toggleClass("show");
+          }
+        }
+      }
+    );
+
+    $(document).on('click', '.header-menu-wrapper header .nav-primary .nav > .menu-item > a', function(e) {
+      if ($(window).width() < 1199) {
+        var item = $(this).closest(".menu-item");
+        if (item.find("> .sub-menu").length) {
+          e.preventDefault();
+          item.toggleClass("show");
+          item.find('> .sub-menu').slideToggle();
+        }
+      }
+    });
+    
+</script>
+      
+
+      <div id="page-content" class="page-content-container">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+    
+  
+    
+    
+
+    
+  
+
+
+
+
+
+<script>
+var courseFree =  false 
+window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      'event': 'productView',
+      'pageType': 'courseLP',
+      'productType': 'Course',
+      'productCategory': 'Course',
+      'productName': 'Mining Valuation & Financial Model',
+      'productId': '15585',
+      'courseFree': courseFree
+    });
+
+  sessionStorage.setItem("analyticsPageType", "courseLP");
+  sessionStorage.setItem("analyticsCourseFree", courseFree);  
+</script>
+
+<div class="product-landing curriculum-landing">
+
+    
+<section class="product-banner page-banner course-page-banner">
+    <div class="banner-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 banner-titles">
+                    
+
+<script>
+  var gtmCourseDescription = "Mining Valuation & Financial Model";
+</script>
+
+<div class="title-block">
+    <h1 class="product__title">
+        Mining Valuation & Financial Model
+    </h1>
+    <span class="product__subtitle">
+    
+      [Elective] Build a DCF valuation model for a mining asset in Excel
+    
+  </span>
+    
+    <a href="https://courses.corporatefinanceinstitute.com/enroll/17370" class="btn btn-primary btn-purchase">
+        Enroll Now for $197.00
+    </a>
+    
+    
+    
+</div>
+
+                    
+                        <div class="video-button">
+                            
+
+  <a
+      class="btn btn-lg btn-intro-video wistia-popover[height=500,width=900]"
+      href="https://fast.wistia.net/embed/iframe/6x0lbha52r?videoFoam=true&autoPlay=true&controlsVisibleOnLoad=true&playButton=false&popover=true&videoHeight=500&videoWidth=900">
+    FREE PREVIEW
+  </a>
+
+
+
+
+                        </div>
+                    
+                </div>
+                <div class="col-md-6 banner-video">
+                    <div class="banner-mask"></div>
+                    
+                        <div class="video-button">
+                            
+
+  <a
+      class="btn btn-lg btn-intro-video wistia-popover[height=500,width=900]"
+      href="https://fast.wistia.net/embed/iframe/6x0lbha52r?videoFoam=true&autoPlay=true&controlsVisibleOnLoad=true&playButton=false&popover=true&videoHeight=500&videoWidth=900">
+    FREE PREVIEW
+  </a>
+
+
+
+
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="course-navigation">
+    <div class="container">
+        <div class="navigation-buttons">
+            <a class="btn-transparent-blue" href="mining-industry-financial-model-valuation.html#section_overview">Overview</a>
+            <a class="btn-transparent-blue" href="mining-industry-financial-model-valuation.html#section_what_you_learn">What You'll Learn</a>
+            
+                <a class="btn-transparent-blue" href="mining-industry-financial-model-valuation.html#section_path_to_certification">Path to Certification</a>
+            
+            
+            
+                
+                    
+                    
+            
+                <a class="btn-transparent-blue" href="mining-industry-financial-model-valuation.html#section_what_students_say">What Students Say</a>
+            
+            <a class="btn-transparent-blue" href="mining-industry-financial-model-valuation.html#section_faq">FAQ</a>
+        </div>
+    </div>
+</div>
+
+    
+    
+
+    <div class="course-body">
+
+        <section class="overview__section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                
+                <div class="product-overview">
+                    <h2 class="section-title" id="section_overview">
+                        Overview
+                    </h2>
+                    <script type="text/javascript">
+var course_prescription = {
+'level': 'Advanced level',
+};
+</script><div class="fr-view"><h2>Recommended Prerequisites</h2><p>You are expected to have either completed the stated prerequisite course(s) or possess the equivalent knowledge prior to enroling in this course:</p><ol><li><a href="learn-to-build-a-financial-model-in-excel-online.html" rel="noopener noreferrer" target="_blank">Building a 3 Statement Financial Model</a></li><li><a href="business-valuation-fundamentals-certificate-course.html" rel="noopener noreferrer" target="_blank">Business Valuation Modeling</a><br><br></li></ol><h2>Mining financial modeling course overview</h2><p><span style="font-size: 16px;">Master the art of building a financial model to value a mining company, complete with assumptions, financials, valuation, sensitivity analysis, and output charts. In this mining financial modeling course, we will work through a case study of a real mining valuation for an asset by pulling information from the Feasibility Study, inputting it into Excel, building a forecast, and valuing the asset.</span></p><p><br></p><p><img class="fr-fic fr-dib fr-fil" style="width: auto; height: auto; max-width: 100%;" alt="mining financial modeling course screenshot" src="https://s3.amazonaws.com/thinkific/file_uploads/4670/images/3f7/4df/298/charts_and_graphs.jpg"></p><p><br></p><h3>Mining financial modeling &amp; valuation course objectives</h3><p>By the end of this mining valuation course you will be able to:</p><ul><li>Understand key mining terms and definitions used in the industry and in valuation</li><li>Understand the mining life cycle from start to finish for assets, projects, and operating mines</li><li>Read and extract the important information from a mining technical report (feasibility study)</li><li>Input key assumptions into a financial model that will drive revenue, expenses, and cash flow in the forecast</li><li>Calculate production statistics based on a detailed mine plan from the technical report</li><li>Build financial statements based on the mine plan</li><li>Perform a discounted cash flow DCF valuation of the mining asset in Excel</li><li>Build sensitivity analysis to test for different input assumptions</li><li>Output relevant graphs and charts to illustrate the investment opportunity</li><li>Understand valuation methods such as Net Asset Value (NAV), P/NAV, P/CF, Total Acquisition Cost (TAC)</li></ul><p><br></p><p><img width="413" height="243" title="how to value a mining company" class="fr-fic fr-dii" style="width: auto; height: auto; max-width: 100%;" alt="how to value a mining company" src="https://s3.amazonaws.com/thinkific/file_uploads/4670/images/26e/a17/23c/mining_reserve_and_resource_table.jpg"><br></p><p><br></p><h3>Who should take this mining valuation course?</h3><p>Master mining valuation and learn how to value a mining company in Excel. This course is designed for professionals seeking careers in investment banking, equity research, corporate development and financial planning an analysis (FP&amp;A).</p><p>This course simulates the experience of working as a corporate development professional at a mining company evaluating an acquisition opportunity. &nbsp;The objective is to take all the information from the technical study, put it into Excel, and determine the net asset value (NAV) of the mine. &nbsp;The completed model will serve as a useful tool for testing different metal prices and other assumptions such as grade, recovery rate, unit operating costs, capital expenditures, and more.</p><p><br></p><p><img class="fr-fic fr-fil fr-dib" style="width: auto; height: auto; max-width: 100%;" alt="financial modeling for mining asset" src="https://s3.amazonaws.com/thinkific/file_uploads/4670/images/23e/709/db1/mining_financial_model_-_dcf.jpg"><br></p><h3>Prerequisites</h3><p>This is an advanced mining valuation course and assumes a solid understanding of the following courses:</p><ul><li>Excel Crash Course</li><li>Building a Financial Model in in Excel</li><li>Business Valuation</li></ul><p><br></p><p><img width="387" height="228" title="mining valuation course" class="fr-fic fr-fil fr-dib" style="width: auto; height: auto; max-width: 100%;" alt="financial modeling and mining valuation course example" src="https://s3.amazonaws.com/thinkific/file_uploads/4670/images/b45/51c/d10/Mining_life_cycle_diagram.jpg"><br></p></div>
+                    <div class="product-images">
+                        <div class="swiper-container" id="image-swiper-container">
+                            <div class="swiper-wrapper" id="image-swiper-wrapper">
+                            </div>
+                        </div>
+                        <div class="swiper-navigation">
+                            <div class="swiper-button-prev" id="image-swiper-prev"></div>
+                            <div class="swiper-pagination" id="image-swiper-pagination"></div>
+                            <div class="swiper-button-next" id="image-swiper-next"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="course-curriculum">
+                    <h2 class="section-title" id="section_what_you_learn">
+                        What You'll Learn
+                    </h2>
+                    <div class="curriculum-includes">
+                        
+                        
+
+<div class="item">
+    <div class="icon slide"></div>
+    <div class="type-title">
+        Lesson
+    </div>
+</div>
+
+
+<div class="item">
+    <div class="icon exercise"></div>
+    <div class="type-title">
+        Multimedia
+    </div>
+</div>
+
+
+<div class="item">
+    <div class="icon exams"></div>
+    <div class="type-title">
+        Exams
+    </div>
+</div>
+
+
+<div class="item">
+    <div class="icon files"></div>
+    <div class="type-title">
+        Files
+    </div>
+</div>
+
+                    </div>
+                    
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle  opened ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse1">
+                Introduction to the Mining Industry
+                <span class="arrow  arrow-bottom "></span>
+            </div>
+            <div class="row  in " id="collapse1">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/texts/5175452-welcome" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Welcome
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-text"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/200462-course-introduction" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Course introduction
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/downloads/200301-downloadable-files" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Downloadable files
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-download"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206238-mining-life-cycle-types-of-assets" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Mining life cycle - types of assets
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206250-technical-reports" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Technical reports
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206270-reserves-and-resources" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Reserves and resources
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206290-key-terms-and-definitions" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Key terms and definitions
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206306-key-financial-concepts" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Key financial concepts
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse2">
+                Valuation Metrics
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse2">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206323-net-present-value-npv" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Net present value (NPV)
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206529-p-nav-ratio" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                P/NAV ratio
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206534-p-cf-ratio" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                P/CF ratio
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206546-ev-resource-ratio" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                EV/Resource ratio
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206554-total-acquisition-cost-tac" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Total acquisition cost (TAC)
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/2555683-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse3">
+                Financial Model - Assumptions Section
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse3">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206563-introduction" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Introduction
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206566-model-layout-and-structure" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Model layout and structure
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206577-conversion-rates" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Conversion rates 
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206619-metal-prices" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Metal prices
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206599-production-schedule" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Production schedule
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/6440517-reserve-and-resources" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Reserve and resources
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206614-mill-capacity-royalties-and-payability" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Mill capacity, royalties, and payability
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206615-operating-costs" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Operating costs 
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/6440523-capital-costs" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Capital costs
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206617-working-capital-and-discount-rate" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Working capital and discount rate
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/3281291-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse4">
+                Financial Model - Mining Section
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse4">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206625-introduction" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Introduction
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206634-mining-schedule" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Mining schedule
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206735-mining-schedule-continue" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Mining schedule - continue
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206731-milling-schedule" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Milling schedule
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/3281309-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse5">
+                Financial Model - Financial Statement Section
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse5">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206742-introduction" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Introduction
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/206748-revenue-and-royalties" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Revenue and royalties
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/207648-operating-costs" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Operating costs
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/207690-capital-costs-and-all-in-costs" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Capital costs and all-in costs
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/207668-operating-profit" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Operating profit
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/6440611-net-income" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Net income
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/207687-changes-in-working-capital" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Changes in working capital
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/3281321-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse6">
+                Financial Model - DCF Valuation
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse6">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214176-introduction" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Introduction
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214187-free-cash-flow" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Free cash flow
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214683-discount-factor" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Discount factor
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214705-npv-and-irr" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                NPV and IRR
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214751-payback" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Payback
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/3281336-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse7">
+                Sensitivity Analysis 
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse7">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214782-introduction" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Introduction
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214798-break-even" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Break-even
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214808-irr-data-table" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                IRR data table
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214820-npv-data-table" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                NPV data table
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/3281344-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse8">
+                Summary Charts & Graphs
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse8">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214845-free-cash-flow-chart" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Free cash flow chart
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214856-cumulative-fcf-break-even-chart" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Cumulative FCF / break-even chart
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214872-production-chart" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Production chart
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/quizzes/2555748-quiz" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Quiz
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-quiz"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse9">
+                Completed Model & Case Study
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse9">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/downloads/214904-completed-model-and-extra-case-study" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Completed model and extra case study
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-download"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/lessons/214924-summary" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Summary
+                                
+                                    <span class="label label-free">
+                                        FREE PREVIEW
+                                    </span>
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-video"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="curriculum-chapter">
+        <div class="chapter-toggle ">
+            <div class="toggle-content" data-toggle="collapse" data-target="#collapse10">
+                Qualified Assessment
+                <span class="arrow  arrow-left "></span>
+            </div>
+            <div class="row  collapse " id="collapse10">
+                <div class="chapter-list">
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/brillium_exams/2587065-qualified-assessment" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Qualified assessment
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-exam"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/surveys/13711070-share-your-feedback" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Share Your Feedback
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-survey"></i>
+                        </div>
+                    </a>
+                
+                    <a href="https://courses.corporatefinanceinstitute.com/courses/take/mining-industry-financial-model-valuation/texts/13711072-course-completion" class="chapter-list-item__link">
+                        <div class="chapter-list-item">
+                            <span class="chapter-list-item__title">
+                                Course Completion
+                                
+                            </span>
+                            <i class="toga-icon toga-icon-content-text"></i>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-4 fixed-column">
+                <div class="course-cart">
+                    <div class="course">
+                        <h2>Mining Valuation & Financial Model</h2>
+                        
+                            <span class="star-rating" data-id="4.9">
+                            
+                                
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                <i></i>
+                                
+                            
+                                
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                <i></i>
+                                
+                            
+                                
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                <i></i>
+                                
+                            
+                                
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                <i></i>
+                                
+                            
+                                
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                <i class="star-half"></i>
+                            
+                            
+                            </span>
+                        
+                        <span class="course_prise"> $197.00 </span>
+                        
+                            
+                                
+                                    <a href="https://courses.corporatefinanceinstitute.com/enroll/17370" class="btn btn-primary btn-purchase">
+                                        Enroll Now
+                                    </a>
+                                
+                                
+                                
+                                
+                                  <a href="https://courses.corporatefinanceinstitute.com/enroll/17370?et=free_trial"
+                                      class="btn btn-primary btn-purchase">
+                                     Free Preview
+                                  </a>
+                                
+                            
+                        
+
+                        <p class="course-feature">
+                            Approx 5.0 hrs to complete
+                        </p>
+                    </div>
+                    
+                    <div class="bundle-upsell">
+                        <h3> Upgrade </h3>
+                        
+                            <div class="product-bundle">
+                                <div class="product-info">
+                                    <div class="product-prise">
+                                        From $847.00
+                                    </div>
+                                    <div class="product-name">
+                                        CFI Full Immersion Bundle & FMVA® Certification
+                                    </div>
+                                </div>
+                                
+                                
+                                <a href="../users/checkout/auth.html" class="btn btn-primary"
+                                  
+                                    
+                                    
+                                      data-bundle_id="20654"
+                                    
+                                  
+                                >
+                                    Buy Now
+                                </a>
+                            </div>
+                        
+                            <div class="product-bundle">
+                                <div class="product-info">
+                                    <div class="product-prise">
+                                        From $497.00
+                                    </div>
+                                    <div class="product-name">
+                                        CFI Self-Study Bundle & FMVA® Certification
+                                    </div>
+                                </div>
+                                
+                                
+                                <a href="../users/checkout/auth.html" class="btn btn-primary"
+                                  
+                                    
+                                    
+                                      data-bundle_id="2583"
+                                    
+                                  
+                                >
+                                    Buy Now
+                                </a>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        
+
+        
+          
+        
+<section class="certification__section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="section-title" id="section_path_to_certification">
+                    Path to Certification
+                </h2>
+
+                <div class="row">
+                    <div class="circle " id="first"></div>
+                    <div class="course_box">
+                        <p class="bundle-title">Prerequisite Courses</p>
+                        <p class="bundle-description">5 courses from beginner to intermediate level.</p>
+                        <span class="number">01</span><span class="status">Optional</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="circle "></div>
+                    <div class="course_box">
+                        <p class="bundle-title">Core Courses</p>
+                        <p class="bundle-description">9 courses from beginner to intermediate level.</p>
+                        <span class="number">02</span><span class="status">Required</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="circle active"></div>
+                    <div class="course_box">
+                        <p class="bundle-title">Elective Courses</p>
+                        <p class="bundle-description">Take 3 out of 9 courses at an advanced level.</p>
+                        <span class="number">03</span><span class="status">Required</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="circle"></div>
+                    <div class="course_box">
+                        <p class="bundle-title">Get Certified</p>
+                        <p class="bundle-description">Submit your FMVA®️ checklist and order your
+                            certificate.</p>
+                        <img src="https://cdn-themes.thinkific.com/4670/168856/Iic0UGJmT6KYP1Ir1Tzw_CFI_FMVA_Certification.svg" alt="">
+                        <span class="number">04</span><span class="status">Required</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="circle" id="last"></div>
+                    <div class="course_box">
+                        <p class="bundle-title">Join Our Community</p>
+                        <p class="bundle-description">Get access to the Global Corporate Finance Society.</p>
+                        <img src="https://cdn-themes.thinkific.com/4670/168856/wWPFa4M4QyyYT3pfwEay_pic_society.svg" alt="">
+                        <span class="number">05</span><span class="status">Optional</span>
+                    </div>
+                </div>
+
+                <div id="certification">
+                    <h2 class="section-title">
+                        How the Certification Works
+                    </h2>
+                    <div class="swiper-button-prev" id="certification-swiper-prev"></div>
+                    <div class="swiper-button-next" id="certification-swiper-next"></div>
+                    <div class="certification_titles"></div>
+                    <div class="swiper-container" id="certification-swiper-container">
+                        <div class="swiper-wrapper" id="certification-swiper-wrapper">
+                            <div class="swiper-slide" data-name="Take Courses">
+                                FMVA® Financial Analyst Certification courses are offered 100% online, allowing you the flexibility to start the financial analyst program anytime and learn when it’s most convenient for you.
+                            </div>
+                            <div class="swiper-slide" data-name="Meet Requirements">
+                                Students must complete all core and elective courses (12 in total) and demonstrate mastery of the topics through successful completion of course materials, quizzes, and assessments.
+                            </div>
+                            <div class="swiper-slide" data-name="Get Certificate">
+                                Within 48 hours of program completion, your Blockchain Verified FMVA Certification will be emailed to you.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+
+        
+
+        
+
+        
+        <section class="course-details__section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="course-review">
+                    <h2 class="section-title" id="section_what_students_say">
+                        What Our Students Say
+                    </h2>
+                    
+
+
+<div class="course-review__wrapper">
+
+    
+    
+    
+        
+            <div class="more-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Ashok Kumar Mishra
+                    </div>
+                    <div class="course-review__text">
+                        <em></em>
+                        <br>
+                        This particular course will add more flavour if the instructor spends more time in explaining certain assumptions taken in the model and its rationality. 
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="4">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i class="star-grey"></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+            
+        
+    
+        
+    
+        
+    
+        
+            <div class="more-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        KANNY SIBOZA
+                    </div>
+                    <div class="course-review__text">
+                        <em>Appreciation</em>
+                        <br>
+                        This is a course that will bring me into my first job  
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+            
+        
+    
+        
+            <div class="more-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Delbert Adivnovak
+                    </div>
+                    <div class="course-review__text">
+                        <em>Mining Financial Model &amp; Valuation</em>
+                        <br>
+                        Excellent mining example with full modeling and explanations of the calculations. Awesome work!. Great definitions and dynamic model!
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+            
+        
+    
+        
+            <div class="more-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Furkan Kasa
+                    </div>
+                    <div class="course-review__text">
+                        <em>The Best Course Ever</em>
+                        <br>
+                        I was doing research for a long time for my doctorate thesis. I have reviewed many video lessons and contents on the internet. There are not many sources and narrations about Mine Valuation, and those are clearly inferior. This course is truly a blessing for mining engineers who are concentrated in the field of finance. You should start absolutely without thinking.
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+            
+                
+    
+        <a class="open-reviews-button btn-transparent-blue">
+          See More
+        </a>
+        <a class="hide-reviews-button btn-transparent-blue" style="display: none">
+          See Less
+        </a>
+    
+</div>
+
+
+<div class="more-reviews-toggle">
+        
+        
+            
+            
+                
+        
+    
+        
+    
+        
+            
+            
+                
+        
+            
+            
+                
+        
+            
+            
+                
+        
+    
+        
+            
+            
+            <div class="more-reviews hidden-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Teka Derick Tikum
+                    </div>
+                    <div class="course-review__text">
+                        More Valuable than most Financial Modeling, Valuation courses in Mining, Petroleum,  Oil and Gas industries online. Skillful for professionals 
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+    
+        
+    
+        
+            
+            
+            <div class="more-reviews hidden-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Raushan Mamatkulov
+                    </div>
+                    <div class="course-review__text">
+                        I really liked the course - well prepared, clear and crisp. 
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+    
+        
+    
+        
+    
+        
+            
+            
+            <div class="more-reviews hidden-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Brett Hannigan
+                    </div>
+                    <div class="course-review__text">
+                        The course was challenging and extremely insightful and I would recommend the course to anyone interested in financial modelling and/or mining valuation!
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+    
+        
+            
+            
+            <div class="more-reviews hidden-reviews">
+                <div class="course-review__container" id="review-container">
+                    <div class="course-review__name">
+                        Fraser Pogue
+                    </div>
+                    <div class="course-review__text">
+                        I really appreciated the mining valuation course and the opportunity to better understand this sector in natural resources.
+                    </div>
+                    <div class="course-review__stars">
+                        <span class="star-rating" data-id="5">
+                            
+                                <input type="radio" name="rating" value="1"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="2"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="3"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="4"/>
+                                
+                                    <i></i>
+                                
+                            
+                                <input type="radio" name="rating" value="5"/>
+                                
+                                    <i></i>
+                                
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+    
+        
+    
+        
+    
+        
+    
+    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+
+        <section class="product_section_faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="section-title" id="section_faq">Frequently Asked Questions</h2>
+                <div class="questions-wrapper">
+                    <div class="question-wrapper opened">
+                        <div class="question">Can I download the Excel files and financial modeling templates?
+                        </div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">Yes! All courses come with downloadable
+                            files. In total, you can download more than 12 different financial modeling
+                            templates to use.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">How long do I have to complete the courses?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">You have an unlimited amount of time – the Full bundle never expires and can always rewatch the lessons as many times as you like. You will have lifetime access.                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">Are CFI courses verified?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">Yes! Our courses and certificates count as
+                            verified Continuing Professional Education for CPA charterholders. We can also
+                            verify certificates with employers if you request it.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">Are there any additional fees or costs?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">No! The bundle price includes everything and
+                            there are no additional fees or charges to earn your digital certificates.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">What currency are your courses priced in?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">All our online courses are priced in USD.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">How do I earn my certificates?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">You have to complete all the video lessons,
+                            quizzes and final assessments in each course. You can retake the assessments as many
+                            times as necessary until you reach an 80% passing grade.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">Can I email the instructor if I have questions?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">While the courses are self-study, you can ask
+                            questions related to technical difficulties or ask content questions on our
+                            quarterly webinars.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">Will these courses help me advance my career?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">Based on hundreds of reviews from thousands
+                            of students we know how CFI courses have helped so many people advance their finance
+                            careers. Our courses are designed to be extremely practical and simulate the
+                            experience of being trained as a professional financial analyst&hellip; the ultimate
+                            way to advance your career.
+                        </div>
+                    </div>
+                    <div class="question-wrapper">
+                        <div class="question">More Questions?</div>
+                        <span class="arrow arrow-left"></span>
+                        <div class="answer" style="display: none;">Please <a
+                                    href="mailto:learning@corporatefinanceinstitute.com">Email us</a> and we&#39;ll
+                            be happy to answer any of your questions!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        
+        <section class="presentation_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 text-left">
+                <h2 class="section-title">
+                    FMVA® Financial Analyst Certification
+                </h2>
+                <p> Become a Financial Modeling and Valuation Analyst (FMVA)® by completing all required courses
+                    in
+                    accounting,
+                    finance, modeling, Excel, presentations, and strategy. From beginner to advanced courses you
+                    will
+                    have the complete
+                    training you need to become a world-class financial analyst.
+                </p>
+            </div>
+            <div class="col-md-7">
+                <a href="https://corporatefinanceinstitute.com/certifications/fmva-enrollment-options/">
+                    <img src="https://cdn-themes.thinkific.com/4670/168856/7lhYKFCiSVivPqYZ7cBj_FMVA-Certificate.jpg" width="100%" alt="FMVA Certificate">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+        
+
+        
+
+        <section class="course-actions">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 product-main-cta">
+                        
+
+  
+    <div class="column">
+      <div class="row">
+        <div class="col-sm-12">
+          
+            <a href="https://courses.corporatefinanceinstitute.com/enroll/17370?et=free_trial" class="btn btn-secondary btn-top-free-trial">
+              Free Preview
+            </a>
+          
+          
+            <a href="https://courses.corporatefinanceinstitute.com/enroll/17370" class="btn btn-primary btn-purchase">
+              Buy $197.00
+            </a>
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="bundle-upsell-bottom">
+            <div class="container">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h3> Upgrade </h3>
+                    
+                    <div class="product-bundle">
+                        <div class="product-info">
+                            <div class="product-prise">
+                                From $847.00
+                            </div>
+                            <div class="product-name">
+                                CFI Full Immersion Bundle & FMVA® Certification
+                            </div>
+                        </div>
+                        <a href="../users/checkout/auth.html" class="btn btn-primary">
+                            Buy Now
+                        </a>
+                    </div>
+                    
+                    <div class="product-bundle">
+                        <div class="product-info">
+                            <div class="product-prise">
+                                From $497.00
+                            </div>
+                            <div class="product-name">
+                                CFI Self-Study Bundle & FMVA® Certification
+                            </div>
+                        </div>
+                        <a href="../users/checkout/auth.html" class="btn btn-primary">
+                            Buy Now
+                        </a>
+                    </div>
+                    
+                  </div>
+                </div>
+            </div>
+        </section>
+        
+
+    </div>
+</div>
+
+      </div>
+
+      <div id="push"></div>
+    </div>
+    
+      <footer class="section gray-footer">
+  <div class="container">
+    <a class="logo-wrapper" href="https://corporatefinanceinstitute.com">
+      <div class="logo-footer"></div>
+    </a>
+    <div class="menu-wrapper">
+      <ul id="menu-footer-navigation" class="footer-navigation">
+         <li class="menu-item menu-item-has-children menu-company">
+            <a href="https://corporatefinanceinstitute.com/about-cfi/">Company</a>
+            <ul class="sub-menu">
+               <li class="menu-item menu-about"><a href="https://corporatefinanceinstitute.com/about-cfi/">About</a></li>
+               <li class="menu-item menu-team"><a href="https://corporatefinanceinstitute.com/about-cfi/faculty-team/">Team</a></li>
+               <li class="menu-item menu-careers"><a href="https://corporatefinanceinstitute.com/about-cfi/careers-at-cfi/">Careers</a></li>
+               <li class="menu-item menu-reviews"><a href="https://corporatefinanceinstitute.com/about-cfi/student-reviews/">Reviews</a></li>
+               <li class="menu-item menu-for-enterprise"><a href="https://corporatefinanceinstitute.com/cfi-for-business/">CFI for Business</a></li>
+               <li class="menu-item menu-for-universities"><a href="https://corporatefinanceinstitute.com/about-cfi/university-partnerships/">For Universities</a></li>
+            </ul>
+         </li>
+         <li class="menu-item menu-item-has-children menu-programs">
+            <a href="https://corporatefinanceinstitute.com/certifications/">Certifications</a>
+            <ul class="sub-menu">
+               <li class="menu-item menu-financial-modeling-valuation-analyst-fmva"><a href="https://corporatefinanceinstitute.com/certifications/financial-modeling-valuation-analyst-fmva-program/">Financial Modeling &amp; Valuation Analyst (FMVA)®</a></li>
+               <li class="menu-item menu-financial-modeling-valuation-analyst-fmva"><a href="https://corporatefinanceinstitute.com/certifications/certified-banking-credit-analyst-certification-cbca/">Certified Banking &amp; Credit Analyst (CBCA)™</a></li>
+               <li class="menu-item menu-cpe-credits"><a href="https://corporatefinanceinstitute.com/about-cfi/cpe-credits-online/">CPE Credits</a></li>
+            </ul>
+         </li>
+         <li class="menu-item menu-item-has-children menu-courses">
+            <a href="../collections.html">Courses</a>
+            <ul class="sub-menu">
+               <li class="menu-item menu-accounting"><a href="../collections/accounting.html">Accounting</a></li>
+               <li class="menu-item menu-excel"><a href="../collections/excel-training.html">Excel</a></li>
+               <li class="menu-item menu-finance"><a href="../collections/finance.html">Finance</a></li>
+               <li class="menu-item menu-financial-modeling"><a href="../collections/financial-modeling.html">Financial Modeling</a></li>
+               <li class="menu-item menu-all-courses"><a href="../collections.html">All Courses</a></li>
+            </ul>
+         </li>
+         <li class="menu-item menu-item-has-children menu-support">
+            <a href="https://corporatefinanceinstitute.com/help-centre/">Support</a>
+            <ul class="sub-menu">
+               <li class="menu-item menu-financial-aid"><a href="https://corporatefinanceinstitute.com/about-cfi/financial-aid/">Financial Aid</a></li>
+               <li class="menu-item menu-1-pledge"><a href="https://corporatefinanceinstitute.com/about-cfi/pledge-1-percent/">1% Pledge</a></li>
+               <li class="menu-item menu-help-faq"><a href="https://corporatefinanceinstitute.com/frequently-asked-questions/">Help | FAQ</a></li>
+               <li class="menu-item menu-contact-us"><a href="https://corporatefinanceinstitute.com/about-cfi/contact-us/">Contact Us</a></li>
+                <li class="active menu-item menu-scholarships"><a href="https://corporatefinanceinstitute.com/resources/support/scholarship/cfi-scholarship-winners/">Scholarships</a></li>
+            </ul>
+         </li>
+         <li class="menu-item menu-item-has-children menu-resources">
+            <a href="https://corporatefinanceinstitute.com/resources/">Resources</a>
+            <ul class="sub-menu">
+               <li class="menu-item menu-knowledge-library"><a href="https://corporatefinanceinstitute.com/resources/knowledge/">Knowledge Library</a></li>
+               <li class="menu-item menu-templates"><a href="https://corporatefinanceinstitute.com/resources/templates/">Templates</a></li>
+               <li class="menu-item menu-jobs-careers"><a href="https://corporatefinanceinstitute.com/resources/careers/jobs/">Jobs &amp; Careers</a></li>
+               <li class="menu-item menu-excel-skills"><a href="https://corporatefinanceinstitute.com/resources/excel/">Excel Skills</a></li>
+               <li class="menu-item menu-ebooks"><a href="https://corporatefinanceinstitute.com/resources/ebooks/">eBooks</a></li>
+            </ul>
+         </li>
+      </ul>
+    </div>
+
+    <div class="footer-icons row">
+      <div class="footer-icon">
+        <a href="https://corporatefinanceinstitute.com/cfi-for-business/" target="_blank" rel="nofollow">
+          <img src="https://cdn.corporatefinanceinstitute.com/assets/logo_cfi-business.svg" class="attachment-full size-full" alt="financial modeling logo">
+        </a>
+      </div>
+      <div class="footer-icon">
+        <a href="https://marketplace.corporatefinanceinstitute.com" target="_blank" rel="nofollow">
+          <img src="https://cdn.corporatefinanceinstitute.com/assets/logo_marketplace.svg" class="attachment-full size-full" alt="marketplace logo">
+        </a>
+      </div>
+      <div class="footer-icon">
+        <a href="https://financialmodeling.org/" target="_blank" rel="nofollow">
+          <img src="https://cdn.corporatefinanceinstitute.com/assets/logo_finmo.svg" class="attachment-full size-full" alt="financial modeling logo">
+        </a>
+      </div>
+      <div class="footer-icon">
+        <a href="https://corporatefinance.org/" target="_blank" rel="nofollow">
+          <img src="https://cdn.corporatefinanceinstitute.com/assets/logo_gcfs.svg" class="attachment-full size-full" alt="gcfs logo">
+        </a>
+      </div>
+      <div class="social-links-wrap">
+        <a class="social-button" title="Follow us on LinkedIn" href="https://www.linkedin.com/school/corporate-finance-institute-cfi/" target="_blank">
+          <i class="fa fa-linkedin-square"></i>
+        </a>
+        <a class="social-button" title="Follow us on Instagram" href="https://www.instagram.com/corporatefinanceinstitute/" target="_blank">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a class="social-button" title="Follow us on Facebook" href="https://www.facebook.com/corporatefinanceinstitute.CFI/" target="_blank">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a class="social-button" title="Follow us on YouTube" href="https://www.youtube.com/c/Corporatefinanceinstitute-CFI" target="_blank">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-links-subsection">
+      <div class="bottom-menu">
+        <div class="copyright-wrap">
+          © 2015 to 2020 CFI Education Inc.
+        </div>
+        <div class="footer-links-wrap">
+          <ul id="menu-footer-links" class="footer-links-menu">
+            <li class="menu-item menu-privacy">
+                <a href="https://corporatefinanceinstitute.com/legal/privacy-policy/" class="menu-image-title-after">
+                    <span class="menu-image-title">Privacy</span>
+                </a>
+            </li>
+            <li class="menu-item menu-terms-of-use">
+                <a href="https://corporatefinanceinstitute.com/legal/website-terms-of-use/" class="menu-image-title-after">
+                    <span class="menu-image-title">ToC</span>
+                </a>
+            </li>
+            <li class="active menu-item menu-copyright-trademarks">
+                <a href="https://corporatefinanceinstitute.com/legal/copyright-trademark-notice/" class="menu-image-title-after">
+                    <span class="menu-image-title">ToS</span>
+                </a>
+            </li>
+            <li class="active menu-item menu-legal">
+                <a href="https://corporatefinanceinstitute.com/legal/" class="menu-image-title-after">
+                    <span class="menu-image-title">Legal</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+    
+    
+    
+
+
+    
+
+    
+
+    
+<script>
+  $(function(){
+
+    
+    ThinkificAnalytics.track('Course Landing Page', {"Course Name":"Mining Financial Model \u0026 Valuation"});
+
+    
+    var buyButton = $('.btn-purchase');
+    var readMoreText = "Read More";
+    var readLessText = "Read Less";
+    var readmoreBtn = $(".readmore-toggle");
+    var readmore = $(".readmore");
+    var	readmoreHeight = readmore.height(), minHeight = 270;
+
+    
+    buyButton.on('click', function(e){
+      ThinkificAnalytics.track('Buy Course Btn Clicked', {"Course Name":"Mining Financial Model \u0026 Valuation"});
+    });
+
+    
+    if ($('#cta-overlay').length > 0) {
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        if (scroll >= 500) {
+            $("#cta-overlay").removeClass("hide");
+        } else {
+            $("#cta-overlay").addClass("hide");
+        }
+      });
+    }
+
+    
+    if(readmoreHeight > minHeight) {
+      readmore.addClass('less');
+      readmoreBtn.on('click', function() {
+        readmore.toggleClass('less');
+        if(readmore.hasClass("less")) {
+          readmoreBtn.text(readMoreText);
+          var sideBar = $(".sidebar-filler");
+          $('html, body').animate({scrollTop: sideBar.offset().top - 0}, 'slow');
+        } else {
+          readmoreBtn.text(readLessText);
+        }
+      });
+    }
+    else if(readmoreHeight == minHeight) {
+      readmoreBtn.addClass('hidden');
+    }
+    else {
+      readmoreBtn.addClass('hidden');
+    }
+
+    
+    $('.toggle-content').on('click', function() {
+        var arrow = $(this).children('.arrow');
+        if (arrow.hasClass('arrow-left')) {
+            arrow.removeClass('arrow-left');
+            arrow.addClass('arrow-bottom');
+            $(this).closest('.chapter-toggle').addClass('opened');
+
+        } else {
+            arrow.removeClass('arrow-bottom');
+            arrow.addClass('arrow-left');
+            $(this).closest('.chapter-toggle').removeClass('opened');
+        }
+    });
+  });
+
+  $('a[href*="#section"]').on('click', function() {
+    var target = $(this).attr('href').split('#')[1];
+    if (location.pathname.replace(/^\//, '').replace('/', '') === this.pathname.replace(/^\//, '').replace('/', '') &&
+      location.hostname === this.hostname && "undefined" !== typeof(target) && $('#' + target).length
+    ) {
+      var target_offset = $('#'+target).offset();
+      var target_top = target_offset.top - $('.header-menu-wrapper').height() -
+      2 * $('.course-navigation').height() - $('#'+target).height() + 47;
+      if ($('.course-navigation').hasClass('fixedNavigation')) {
+          target_top += $('.course-navigation').height();
+      }
+      $('html, body').animate({scrollTop: target_top}, 'slow');
+      return false;
+    }
+  });
+
+  if ($('.course-review').length) {
+    $('.certification__section').css('padding-bottom', '410px')
+  }
+
+  
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=284275161658450";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Twitter
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+  var banner_img = $('.page-banner').css('background-image').split('url',[2])[1];
+  $('.banner-video').css("background-image", "url" + banner_img);
+
+  // Overview images Slider
+  $('.slider').find('img').each(function () {
+    var slide = $('#image-swiper-wrapper').append('<div class="swiper-slide"></div>')
+    $(this).appendTo('#image-swiper-wrapper :last-child');
+  });
+  if (!$('.slider').length) {
+    $('.product-images').remove();
+  }
+
+  $('document').ready(function() {
+    var container = $('.course-review__wrapper');
+    container.masonry({
+      itemSelector: '.more-reviews',
+      columnWidth: '.more-reviews',
+      gutter: 30,
+    });
+
+    var course_prescription_default = {
+      'level': 'Beginner level',
+      'format': '100% online and self-paced',
+    };
+
+    for (var i in course_prescription_default) {
+      if ('undefined' !== typeof(course_prescription) && 'undefined' !== typeof(course_prescription[i])) {
+        course_prescription_default[i] = course_prescription[i];
+      }
+
+      if (course_prescription_default[i]) {
+        var item = $('<p>' + course_prescription_default[i] + '</p>');
+        item.appendTo('.course-cart > .course').addClass('course-feature').addClass(i);
+        if (i === 'level') {
+          var level = course_prescription_default[i].split(" ")[0];
+          item.addClass(level[0].toLowerCase() + level.substring(1));
+        }
+      }
+    }
+  });
+
+  $('.open-reviews-button').click(function (e) {
+    var container = $('.course-review__wrapper');
+    var elem = $('.more-reviews-toggle .more-reviews').clone();
+    container.masonry()
+      .append(elem)
+      .masonry( 'appended', elem)
+      .masonry();
+    $('.hide-reviews-button').css('display', 'block');
+    $(this).css('display', 'none');
+  });
+
+  $('.hide-reviews-button').click(function (e) {
+    var container = $('.course-review__wrapper');
+    elem = $('.course-review__wrapper .hidden-reviews');
+    container.masonry('remove', elem)
+      .masonry('layout');
+
+    $('html, body').animate({scrollTop: $('.course-review').offset().top}, 'slow');
+    $('.open-reviews-button').css('display', 'block');
+    $(this).css('display', 'none');
+  });
+
+</script>
+
+    
+
+  <!-- Google Code for Mining Financial Model &amp; Valuation -->
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 938316589;
+var google_conversion_label = "qoWaCMP93HIQraa2vwM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938316589/?value=1.00&label=qoWaCMP93HIQraa2vwM&guid=ON&script=0"/>
+</div>
+</noscript>
+
+
+
+  
+
+    
+<script>
+  $(function() {
+    var menuVisible = false;
+    $('.header-nav__mobile-btn').click(function() {
+      if (menuVisible) {
+        $('.header-nav__container').addClass('open');
+        menuVisible = false;
+        return;
+      }
+      $('.header-nav__container').removeClass('open');
+      menuVisible = true;
+    });
+    $('.header-nav__container').click(function() {
+      $(this).addClass('open');
+      menuVisible = false;
+    });
+  });
+
+    $('.questions-wrapper .question-wrapper').click(function () {
+      $(this).children('.answer').slideToggle();
+      $(this).toggleClass('opened');
+    });
+
+    if ($('.footer-navigation>.menu-item.menu-item-has-children>a').length) {
+      $('.footer-navigation>.menu-item.menu-item-has-children>a').on('click', function(e) {
+        if (window.innerWidth < 768) {
+          e.preventDefault();
+          var link = $(this);
+          $(this).next('.sub-menu').slideToggle('200', function() {
+            link.toggleClass('collapsed');
+          });
+          $(this).closest('.menu-item').siblings('.menu-item').each(function() {
+            if ($(this).find('.sub-menu').length) {
+              $(this).find('.sub-menu').slideUp('200', function() {
+                if ($(this).siblings('a').length) {
+                  $(this).siblings('a').removeClass('collapsed');
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+
+    $('.hello-bar-wrapp .bar-close').on('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('.hello-bar').addClass('closed');
+        $('.hello-bar-wrapp').slideUp();
+        var expires = $('.hello-bar').data('hide-time') * 24 * 60 * 60;
+        var date = new Date(new Date().getTime() + expires * 1000);
+        var cookieName = 'hide_hello_bar';
+        var cookieValue = 'true';
+        document.cookie = cookieName +"=" + cookieValue + ";expires=" + date.toUTCString() + ";domain=.corporatefinanceinstitute.com;path=/";
+    });
+
+    var courses_count = parseInt('Liquid error: internal');
+    if (!isNaN(courses_count) && courses_count > 24) {
+      var date = new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000); // 1 month
+      document.cookie ="is_fmva_enrolled=true;expires=" + date.toUTCString() + ";domain=.corporatefinanceinstitute.com;path=/";
+    }
+
+    if (!getCookie('hide_hello_bar') && $('.hello-bar-wrapp').length && $('.hello-bar-wrapp .bar-content').text().trim()) {
+      $('.hello-bar-wrapp').show();
+
+      if ($('.hello-bar-countdown').length && $('.hello-bar-countdown').data('date')) {
+        window.countDownDate = new Date($('.hello-bar-countdown').data('date') + ' GMT-0800').getTime();
+        window.startDate = new Date().getTime();
+        var hello_bar_countdown = function () {
+          var distance = window.countDownDate - window.startDate;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          var resultString = '';
+          if (days) {
+            resultString += days + "d ";
+          }
+          if (hours) {
+            resultString += hours + "h ";
+          }
+          if (minutes) {
+            resultString += minutes + "m ";
+          }
+          if (seconds) {
+            resultString += seconds + "s ";
+          }
+          $('.hello-bar-countdown').html('Expires in ' + resultString);
+          if (distance < 0) {
+            clearInterval(window.countdown_interval);
+            $('.hello-bar-countdown').html("");
+          }
+          else {
+            $('.hello-bar-wrapp').show();
+          }
+          window.startDate += 1000;
+        };
+        window.countdown_interval = setInterval(hello_bar_countdown, 1000);
+      }
+
+    }
+
+ </script>
+
+ <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5986760"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="https://bat.bing.com/action/0?ti=5986760&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+<script type="text/javascript" src="https://cdn-themes.thinkific.com/4670/168856/uEAfMtjPRrqC6vNhkAiU_isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="https://cdn-themes.thinkific.com/4670/168856/K3S5t6xbRdGSlvMDx1xa_masonry.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+      if ($("#notifications").length) {
+        $("body").prepend($('#notifications').remove());
+      }
+    });
+</script>
+
+<script type="text/javascript">
+    if (typeof('ga') !== 'undefined') {
+      $(document).on('click', '.footer-bar-inr .full-size-link', function(e) {
+        e.preventDefault();
+        ga('send', 'event', 'hellobar-inr', 'click', 'Hellobar INR');
+        setTimeout(function() {
+          window.location.href = e.target.href;
+        }, 100);
+      });
+      $(document).on('click', '#popup-window .popup-content a.btn-main', function(e) {
+        e.preventDefault();
+        ga('send', 'event', 'popup-inr', 'click', 'Popup INR');
+        setTimeout(function() {
+          window.location.href = e.target.href;
+        }, 100);
+      });
+    }
+</script>
+
+<script type="text/javascript">
+if ($('.dashboard-leftmenu .subpages-list').length) {
+  var affixSidebar = function() {
+    var scrollTop = $(window).scrollTop();
+    var headerHeight = $('.header-menu-wrapper').outerHeight() + $('.hello-bar').outerHeight();
+    var fixedBlocks = 0 + headerHeight + $('.section.dashboard-menu .section-wrapper.fixed').outerHeight();
+    if ($('.dashboard-leftmenu').offset().top < scrollTop + fixedBlocks) {
+      var top = fixedBlocks + 10;
+      if (scrollTop + top + $('.dashboard-leftmenu .subpages-list').height() > $('.student-profile').offset().top + $('.student-profile').height()) {
+        top = - scrollTop + ($('.student-profile').offset().top + $('.student-profile').height() + 20 - $('.dashboard-leftmenu .subpages-list').height());
+      }
+      $('.dashboard-leftmenu .subpages-list').addClass('fixed').css('top', top + 'px').css('width', $('.dashboard-leftmenu .subpages-list').parent().width());
+    }
+    else {
+      $('.dashboard-leftmenu .subpages-list').removeClass('fixed').css('width', '');
+    }
+  };
+  affixSidebar();
+  $(window).on('resize scroll', function() {
+    affixSidebar();
+  });
+}
+
+var setStickyBlocks = function () {
+  var scrollTop = $(window).scrollTop();
+  var headerHeight = $('.header-menu-wrapper').outerHeight() + $('.hello-bar').outerHeight();
+  if ($('.section.dashboard-menu').length) {
+    var section_selector = $('.section.dashboard-menu');
+    var container = section_selector.find('.section-wrapper');
+    section_selector.height(container.outerHeight());
+    if (section_selector.offset().top < scrollTop + headerHeight) {
+      container.addClass('fixed');
+      container.css('top', headerHeight);
+      $('.header-menu-wrapper').css('box-shadow', 'none');
+    }
+    else {
+      container.removeClass('fixed');
+      $('.header-menu-wrapper').css('box-shadow', '');
+    }
+  }
+};
+
+
+var setCartSticky = function () {
+    if ($('.course-cart').length) {
+        var block = $('.course-cart');
+        var scrollTop = $(window).scrollTop();
+        var startOffset = $(block.parent()).offset().top;
+        var offset = block.offset().top - 160;
+        var endBlock = $('.product_section_faq');
+        var endOffset = endBlock.offset().top - 130;
+        if (scrollTop >= offset && scrollTop < endOffset) {
+            block.addClass('fixedCart');
+        }
+        if (scrollTop < startOffset - 160) {
+            block.removeClass('fixedCart');
+        }
+        if (scrollTop > endOffset) {
+            block.removeClass('fixedCart');
+            block.css("position", "absolute");
+            block.css("top", endOffset - block.outerHeight() + 130);
+        }
+        if (scrollTop < endOffset) {
+            block.css("position", "");
+            block.css("top", "");
+        }
+    }
+};
+
+var setNavigationSticky = function () {
+    if ($('.course-navigation').length) {
+        var block = $('.course-navigation');
+        var scrollTop = $(window).scrollTop();
+        var offset = $('.page-banner').height();
+        if (scrollTop >= offset) {
+            block.addClass('fixedNavigation');
+            block.css('top', $('.header-menu-wrapper').height());
+        }
+        if (scrollTop < offset){
+            block.removeClass('fixedNavigation');
+            block.css('top', '');
+        }
+    }
+};
+var topMenu = $(".course-navigation"),
+    topMenuHeight = topMenu.outerHeight() + 150,
+    menuItems = topMenu.find("a"),
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) {
+        return item;
+      }
+});
+
+var setActiveSection = function () {
+  var fromTop = $(this).scrollTop()+topMenuHeight;
+
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   menuItems.filter(":not([href='#"+id+"'])").removeClass("active");
+   menuItems.filter("[href='#"+id+"']").addClass("active");
+}
+
+var collectionSidebarAffix = function() {};
+if ($('.collections-filter-sidebar').length) {
+  collectionSidebarAffix = function() {
+    var element = $('.collections-filter-sidebar');
+
+    if (element.height() >= $('.collection-wrapper').height()) {
+      return false;
+    }
+
+    var headerHeight = $('.header-menu-wrapper').outerHeight();
+    var top_affix = $('.products-wrap').offset().top;
+    var bottom_affix = top_affix + $('.products-wrap').outerHeight();
+    var scrollTop = $(window).scrollTop();
+
+    if ($(window).width() < 768 || top_affix > scrollTop + headerHeight) {
+      element
+        .removeClass('fixed')
+        .removeClass('fixed-bottom')
+        .css('top', headerHeight);
+      return;
+    }
+
+    if (top_affix < scrollTop + headerHeight) {
+      element
+        .addClass('fixed')
+        .removeClass('fixed-bottom')
+        .css('top', headerHeight);
+    }
+
+    if ((bottom_affix - element.outerHeight()) <= (scrollTop + headerHeight + 60)) {
+      element
+        .addClass('fixed')
+        .removeClass('fixed-bottom')
+        .css('top', bottom_affix - scrollTop - $('.collections-filter-sidebar').height() - headerHeight);
+    }
+  };
+
+  $('.collections-filter-sidebar .open').siblings('.sub-items').show();
+}
+
+$(window).on('resize load', function () {
+  setStickyBlocks();
+  collectionSidebarAffix();
+  setCartSticky();
+  setNavigationSticky();
+  setActiveSection();
+});
+$(document).scroll(function () {
+  setStickyBlocks();
+  collectionSidebarAffix();
+  setCartSticky();
+  setNavigationSticky();
+  setActiveSection();
+});
+
+// Search autocomplete
+var search_ajax_url = 'https://thinkific.corporatefinanceinstitute.com/ajax/search.php';
+var default_search_results = '{"courses":[{"items":[],"name":"Accounting Fundamentals Course","url":"https://courses.corporatefinanceinstitute.com/courses/learn-accounting-fundamentals-corporate-finance"},{"items":[],"name":"Reading Financial Statements","url":"https://courses.corporatefinanceinstitute.com/courses/learn-to-read-financial-statements-free-course"}, {"items":[],"name":"Free Excel Crash Course - Spreadsheet Tutorial for Finance","url":"https://courses.corporatefinanceinstitute.com/courses/free-excel-crash-course-for-finance"}, {"items":[],"url":"https://courses.corporatefinanceinstitute.com/courses/introduction-to-corporate-finance","name":"Introduction to Corporate Finance"}], "resources":[]}';
+
+var search_autocomplete = {
+  init: function () {
+    let self = this;
+
+    this.set_size('default');
+
+    $('.search-field').on('keyup', function (e) {
+      var field = $(this);
+      clearTimeout(field.data('timer'));
+      if (e.which === 27) { // escape
+        search_autocomplete.hide();
+      } else if (field.val().length > 3) {
+        field.data('timer', setTimeout(function () {
+          search_autocomplete.request(field);
+        }, 400));
+      } else if (field.val().length > 0 && field.val().length < 3) {
+        search_autocomplete.hide();
+      }
+
+      if (field.val().length > 0) {
+        field.siblings('.cancel-button').show();
+      }
+    });
+
+    $('.search-field').on('click', function () {
+      var field = $(this);
+      if (field.val().length === 0) {
+        var dropdown = field.siblings('.ajax-search-dropdown');
+        if (dropdown.length && !dropdown.is(':visible')) {
+          setTimeout(function () {
+            search_autocomplete.show_default_results(field);
+          }, 200);
+        }
+      }
+    });
+
+    $('.search-field ~ .cancel-button').on('click', function(e) {
+      self._clear_search();
+
+      self.set_size('wide');
+
+      return false;
+    });
+  },
+  show_default_results: function(field) {
+    if (typeof default_search_results !== 'undefined' && default_search_results) {
+      try {
+        var defData = {resources: {}, courses: {}};
+        var data = JSON.parse(default_search_results);
+        data = $.extend(defData, data);
+        if (data.resources.length || data.courses.length) {
+          search_autocomplete.show(field, data.resources, data.courses);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  },
+  request: function(field) {
+    var t = Date.now().toString();
+    field.data('t', t);
+    $.get(window.search_ajax_url, {t: t, s: field.val()}, function(data) {
+      if (data.t === field.data('t')) {
+        if (data.resources.length || data.courses.length) {
+          search_autocomplete.show(field, data.resources, data.courses);
+        } else {
+          search_autocomplete.hide();
+        }
+      }
+    });
+  },
+  show: function (field, resources, courses) {
+    var dropdown = field.siblings('.ajax-search-dropdown'),
+      ul = dropdown.find('ul'), li;
+    if (!dropdown.length) {
+      return;
+    }
+
+    ul.html('');
+    var count = 0;
+    $.each(courses, function (k, item) {
+      if (count < 20) {
+        li = $('<li><a><i class="fa fa-search"></i><span></span></a></li>').appendTo(ul);
+        li.find('a').attr('href', item.url).find('span').text(item.name + ' (course)');
+        count++;
+        $.each(item.items, function (k, item) {
+          li = $('<li class="lesson-itm"><a><i class="fa fa-search"></i><span></span></a></li>').appendTo(ul);
+          li.find('a').attr('href', item.url).find('span').text(item.name + ' (lesson)');
+          count++;
+        });
+      }
+    });
+    $.each(resources, function (k, item) {
+      if (count < 20) {
+        li = $('<li><a><i class="fa fa-search"></i><span></span></a></li>').appendTo(ul);
+        li.find('a').attr('href', item.url).find('span').text(item.title + ' (resource)');
+        count++;
+      }
+    });
+
+    $(document).on('click', ':not(.ajax-search-dropdown), :not(.search-form)', search_autocomplete.on_click);
+    dropdown.show();
+  },
+  hide: function () {
+    $('.ajax-search-dropdown').hide();
+    $(document).off('click', search_autocomplete.on_click);
+  },
+  on_click: function (e) {
+    e.stopPropagation();
+    search_autocomplete.hide();
+    search_autocomplete.update_size(e);
+  },
+  set_size: function (size) {
+    let $searchForm = $('.left-side .search-form');
+
+    const params = {
+      $searchForm: $searchForm,
+      $searchField: $searchForm.find('.search-field'),
+      $searchIcon: $searchForm.find('.fa-search'),
+      $btnCancel: $searchForm.find('.cancel-button'),
+    };
+
+    if (size === 'wide') {
+      this._size_wide(params);
+    }
+
+    if (size === 'default') {
+      this._size_default(params);
+    }
+  },
+  update_size: function (e) {
+    let $target = $(e.target);
+
+    if (!$target.is('.search-form > .search-field')) {
+      search_autocomplete.set_size('default');
+    } else {
+      search_autocomplete.set_size('wide');
+    }
+  },
+  _size_wide: function (params) {
+    params.$searchForm.addClass('wide');
+    params.$searchIcon.addClass("focus");
+    params.$btnCancel.show();
+  },
+  _size_default: function (params) {
+    params.$searchForm.removeClass('wide');
+    params.$searchIcon.removeClass("focus");
+
+    if ($.trim(params.$searchField.val()) === '') {
+      params.$btnCancel.hide();
+    }
+  },
+  _clear_search: function () {
+    $('.left-side .search-form')
+      .find('.search-field')
+      .val('')
+      .focus();
+  }
+};
+search_autocomplete.init();
+
+/**
+ *  For form search in header with autocomplete
+ *  Check focus for input search
+ */
+$(document).on('click.headerSearchForm', search_autocomplete.update_size);
+
+</script>
+
+    
+
+  
+<script>
+
+var analyticsUserID = sessionStorage.getItem("analyticsUserID");
+var analyticsUserStatus = sessionStorage.getItem("analyticsUserStatus");
+var analyticsPageType = sessionStorage.getItem("analyticsPageType");
+var analyticsCourseId = sessionStorage.getItem("analyticsCourseId");
+var analyticsCourseAction = sessionStorage.getItem("analyticsCourseAction");
+
+window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      'userStatus': analyticsUserStatus,
+      'userID': analyticsUserID,
+      'postAuthor': 'Courses'
+      
+    });
+	
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PRVF2Q');</script>
+<!-- End Google Tag Manager -->
+
+<!-- New Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PS9DC56');</script>
+<!-- End New Google Tag Manager -->
+
+
+<!-- Course Landing Pages DL Event --> 
+<script>
+    if(analyticsPageType == "courseLP"){
+		gtmCoursePrice = document.querySelector(".course_prise").innerText;
+		gtmCoursePrice == "Free" ? gtmCoursePrice : gtmCoursePrice = gtmCoursePrice.replace(/^\s+/g, '').substr(1);
+        gtmProductName = document.querySelector(".product__title").innerText;
+		dataLayer.push({
+		  'event': 'productLpView',
+		  'productType': 'Course',
+		  'productName': gtmProductName,
+		  'productPrice': gtmCoursePrice,
+		  'ecommerce': {
+			'detail': {
+			  'products': [{
+				'name': gtmProductName,
+				'price': gtmCoursePrice,
+			   }]
+			 }
+		   }
+		});
+	}
+	if(analyticsPageType == "checkout"){
+		dataLayer.push({event:'checkoutCourse'});
+	}
+	if(analyticsPageType == "bundleLP"){
+        gtmProductName = document.querySelector(".product__title").innerText;	    
+		dataLayer.push({
+		  'event': 'productLpView',
+		  'productType': 'Bundle',
+		  'productName': gtmProductName,		  
+
+		});
+	}
+	
+	if(analyticsCourseAction === "freeEnroll"){
+	    dataLayer.push({
+            'event': 'checkout',
+            'ecommerce': {
+             'checkout': {
+                'actionField': 3,
+                 'products': [{
+                   'id': analyticsCourseId,
+                   'price':0,
+                   'quantity': 1
+                }]
+            }
+        }
+    });  
+	    
+	}
+	
+	sessionStorage.setItem("analyticsPageType", "");
+	sessionStorage.setItem("analyticsCourseAction", "");
+	
+	
+</script>
+<!-- End of Course Landing Pages DL Event --> 
+
+
+<!-- Google Code for Courses - All Pages -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 938316589;
+var google_conversion_label = "4vaGCMep1HIQraa2vwM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938316589/?value=1.00&currency_code=CAD&label=4vaGCMep1HIQraa2vwM&guid=ON&script=0"/>
+</div>
+</noscript>
+
+
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"26068827"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+
+
+<script type="text/javascript">
+_linkedin_partner_id = "490258";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=490258&fmt=gif" />
+</noscript>
+
+<!-- Hotjar Tracking Code for https://corporatefinanceinstitute.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1473096,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var _0x381f=['thinkific_ue=','fromCharCode','charCodeAt',';expires=','setTime','getTime','cookie'];(function(_0x2699a9,_0x501e82){var _0x5b6c40=function(_0xa3de42){while(--_0xa3de42){_0x2699a9['push'](_0x2699a9['shift']());}};_0x5b6c40(++_0x501e82);}(_0x381f,0x90));var _0x5881=function(_0x5ef147,_0x4faa55){_0x5ef147=_0x5ef147-0x0;var _0x15acfe=_0x381f[_0x5ef147];return _0x15acfe;};var thinkific_cfg=function(_0x51f671){var _0x3eb7f5=new Date();_0x3eb7f5[_0x5881('0x0')](_0x3eb7f5[_0x5881('0x1')]()+0x2*0x18*0x3c*0x3c*0x3e8);document[_0x5881('0x2')]=_0x5881('0x3')+btoa(_0x51f671['replace'](/[a-zA-Z]/g,function(_0x475221){return String[_0x5881('0x4')]((_0x475221<='Z'?0x5a:0x7a)>=(_0x475221=_0x475221[_0x5881('0x5')](0x0)+0xd)?_0x475221:_0x475221-0x1a);}))+_0x5881('0x6')+_0x3eb7f5+';domain=.corporatefinanceinstitute.com;path=/';};
+    $(document).ready(function() {
+        $('.contact-us-button').on('click', function () {
+          $('#contact-us-popup').toggleClass('hidden');
+          $('#contact-us-overlay').toggleClass('hidden');
+        });
+
+        $('#contact-us-popup .close-btn').on('click', function () {
+          $('#contact-us-popup').addClass('hidden');
+          $('#contact-us-overlay').addClass('hidden');
+        });
+
+        $(document).on('click', function (e) {
+          if (e.target.id === 'contact-us-overlay') {
+            $('#contact-us-popup').addClass('hidden');
+            $('#contact-us-overlay').addClass('hidden');
+          }
+        });
+
+        $('#gform_27').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+              type: 'POST',
+              url: "https://corporatefinanceinstitute.com/wp-admin/admin-ajax.php",
+              data: {
+                action: "submit_contact_us",
+                "first_name": $('#input_27_1_3').val(),
+                "last_name": $('#input_27_1_6').val(),
+                "email": $('#input_27_2').val(),
+                "phone": $('#input_27_3').val(),
+                "message": $('#input_27_4').val(),
+                "program": $('#input_40_7').val(),
+                "courses": $('#input_40_8').val(),
+                "direct_message": $('[name="input_5"]:checked').val(),
+                "source_url": window.location.href
+              },
+              success: function (data) {
+                if (data.error === 0) {
+                  if ('undefined' !== typeof(data.confirmation)) {
+                    if ($("#choice_27_5_0").prop("checked")) {
+                      window.location.replace("https://corporatefinanceinstitute.com/program-details/");
+                    }
+                    else {
+                      $('#contact-us-popup .contact-us-popup_wrapper').html('<div class="confirmation">' + data.confirmation + '</div>');
+                    }
+                  }
+                }
+                else if ('undefined' !== typeof(data['error-message'])) {
+                  alert(data['error-message']);
+                }
+              }
+            });
+
+        });
+        $('.product-images').each(function () {
+            var id = $(this).attr('id');
+            var mySwiper = new Swiper('#image-swiper-container', {
+              spaceBetween: 10,
+                navigation: {
+                  nextEl: '#image-swiper-next',
+                  prevEl: '#image-swiper-prev'
+                },
+                pagination: {
+                  el: '#image-swiper-pagination',
+                  type: 'bullets',
+                  clickable: true,
+                },
+            autoplay: 10000,
+          });
+        });
+        var menu = ['Take Courses', 'Meet Requirements', 'Get Certificate'];
+        $('#certification').each(function () {
+            var id = $(this).attr('id');
+            var mySwiper = new Swiper('#certification-swiper-container', {
+                spaceBetween: 10,
+                navigation: {
+                    nextEl: '#certification-swiper-next',
+                    prevEl: '#certification-swiper-prev',
+                  },
+                pagination: {
+                    el: '.certification_titles',
+                    clickable: true,
+                    bulletClass: 'ceritfication-pagination-bullet',
+                    bulletActiveClass: 'certification-pagination-bullet-active',
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (menu[index]) + '</span>';
+                    },
+                },
+                autoplay: 10000,
+          });
+        });
+
+        if (typeof(window.Swiper) !== 'undefined') {
+          if ($('.linkedin-reviews-section .reviews-wrapper').length) {
+            new Swiper('.linkedin-reviews-section .reviews-wrapper', {
+              loop: true,
+              autoplay: 5000,
+              centeredSlides: true,
+              slidesPerView: 'auto',
+              spaceBetween: 20,
+              autoHeight: true,
+              breakpoints: {
+                320: {
+                  spaceBetweenSlides: 10,
+                }
+              }
+            });
+          }
+        }
+
+        $('.swiper-container[id^="slider"], .swiper-container[id^="image-swiper-container"]').each(function () {
+          var id = $(this).attr('id');
+          if (!id) {
+              id = "id" + Math.random().toString(16).slice(2);
+              $(this).attr('id', id);
+          }
+          new Swiper('#' +id + '.swiper-container', {
+              spaceBetween: 10,
+              pagination: {
+                  el: '#' + id + ' .swiper-pagination',
+                  type: 'bullets',
+                  clickable: true,
+                },
+                navigation: {
+                  nextEl: '#' + id + ' .swiper-button-next',
+                  prevEl: '#' + id + ' .swiper-button-prev'
+                },
+            autoplay: 10000,
+          });
+        });
+
+        if ($('.certification_titles').length){
+            var certification = document.querySelector('#certification-swiper-container').swiper;
+            certification.on('slideChange', function () {
+                $('.certification_titles > #' + certification.previousIndex).removeClass('active');
+                $('.certification_titles > #' + certification.activeIndex).addClass('active');
+            });
+        }
+
+        $('.question-wrapper').on('click', function() {
+        var arrow = $(this).children('.arrow');
+        if (arrow.hasClass('arrow-left')) {
+            arrow.removeClass('arrow-left');
+            arrow.addClass('arrow-bottom');
+        } else {
+            arrow.removeClass('arrow-bottom');
+            arrow.addClass('arrow-left');
+        }
+        });
+
+        if ($('.tuition-table').length && $('.tuition-table .td.first-column span span').length) {
+
+          $('.tuition-table .td.first-column span span').each(function () {
+            var tooltip_text = $(this).html();
+            var parent = $(this).parent();
+            var text = parent.html();
+            text = text.substr(0, text.indexOf('<span>')).trim();
+            var last_word = text.split(" ").pop();
+            parent.html(
+              text.substr(0, text.lastIndexOf(' ')) +
+                '<span> ' +
+                  last_word + '<span class="tooltip-content">' +
+                  '<i class="fa fa-question-circle" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="' + tooltip_text + '"></i>' +
+                  '</span>' +
+                '</span>'
+            );
+
+            parent.find('i').tooltip();
+            parent.find('span').css({'white-space' : 'nowrap'});
+          });
+        }
+        $('.tuition-table-wrapper.mobile-layout i.fa-question-circle').tooltip();
+
+        authManagment();
+
+        
+        
+
+        $('.header-menu-wrapper header .nav-primary .nav > .menu-item > a').on('click', function(e) {
+          var item = $(this).closest('.menu-item');
+          if (item.find('> .sub-menu').length && $(window).width() < 544) {
+            e.preventDefault();
+            item.toggleClass('show');
+          }
+        });
+    });
+
+    // FMVA Progress
+    if ($('.dashboard-progress').length) {
+
+        var fmva_progress = getCookie('fmva_progress');
+        if (fmva_progress) {
+            showProgress(fmva_progress);
+        }
+        else {
+            $.ajax({
+                type: 'POST',
+                url: 'https://corporatefinanceinstitute.com/wp-admin/admin-ajax.php',
+                data: {
+                    action: "get_thinkific_fmva_progress",
+                    email: $('#users-email').val()
+                },
+                success: function (data) {
+                    if ('undefined' !== typeof(data.progress)) {
+                        showProgress(data.progress);
+                        var date = new Date(new Date().getTime() + 60 * 30 * 1000); // 30 min
+                        document.cookie = "fmva_progress=" + parseFloat(data.progress) + "; path=/; expires=" + date.toUTCString() + ";domain=.corporatefinanceinstitute.com";
+                    }
+                }
+            });
+        }
+
+        function showProgress(value) {
+            value = parseFloat(value);
+            $('.dashboard-progress .percent-completed').css('width', value + '%');
+            $('.dashboard-progress .percent-value').text(value + '%');
+            $('.dashboard-progress').removeClass('hidden');
+        }
+    }
+
+    function authManagment() {
+      var cookieDate = new Date();
+      cookieDate.setTime(cookieDate.getTime() + (30*24*60*60*1000));
+      
+        document.cookie = "courses_user=0;expires=" + cookieDate  + ";domain=.corporatefinanceinstitute.com;path=/";
+        document.cookie = "userinfo=;expires=" + cookieDate  + ";domain=.corporatefinanceinstitute.com;path=/";
+      
+
+      
+    }
+
+    $(document).on(
+      'click',
+      '.btn-purchase',
+      function(e) {
+        if ($(this).attr('href').indexOf('et=free')) {
+          if (typeof "ga" !== "undefined") {
+            tracker = ga.getAll()[1];
+            if (tracker) {
+              tracker.send('event', 'free-course-signup', 'click');
+            }
+          }
+        }
+      }
+    );
+
+    if ($('#header-play-video-link').length && typeof($.fn.magnificPopup) !== 'undefined') {
+      $('#header-play-video-link').magnificPopup({
+        disableOn: 700,
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+      });
+    }
+</script>
+
+  
+    <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+    <script type="text/javascript">window.Beacon('init', '502360b4-52f7-46dd-902b-7daddfb94664')</script>
+  
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      
+
+      window.Beacon('config', {
+        'contactForm': {
+          customFieldsEnabled: true,
+          showName: true,
+        },
+        'showPrefilledCustomFields': false,
+      });
+
+      window.Beacon('prefill', {
+        fields: [
+          {
+            'id': 19810,
+            'value':  'Free' ,
+          },
+        ],
+      });
+
+      $(document).on('click', '#brochure-confirm .brochure-popup .popup-close', function() {
+        $('#brochure-confirm .brochure-popup').removeClass('open');
+      });
+
+      var popup_update = function() {
+        if ($('.BeaconContainer').length) {
+          var beacon_padding = 22;
+          var beacon_scollbar_size = 12;
+          $('#brochure-confirm .brochure-popup').css({
+            'z-index': ($('.BeaconContainer').css('z-index') + 1),
+            'bottom': (parseInt($('.BeaconContainer').css('bottom')) + beacon_padding) + 'px',
+            'right': (parseInt($('.BeaconContainer').css('right')) + beacon_padding + beacon_scollbar_size) + 'px',
+            'box-shadow': $('.BeaconContainer').css('box-shadow'),
+          });
+        }
+      };
+
+      $(window).on('load resize scroll', function() {
+        if ($('#brochure-confirm .brochure-popup').length) {
+          popup_update();
+        }
+      });
+
+      window.Beacon('on', 'open', function() {
+        popup_update();
+      });
+
+      window.Beacon('on', 'ready', function() {
+        popup_update();
+      });
+
+      window.Beacon('on', 'close', function() {
+        $('#brochure-confirm .brochure-popup').removeClass('open');
+      });
+
+      window.Beacon('on', 'email-sent', function(e) {
+        if ($('#brochure-confirm .brochure-popup').length) {
+          $('#brochure-confirm .brochure-popup').removeClass('open');
+        }
+
+        $.ajax({
+          'url': 'https://corporatefinanceinstitute.com/wp-admin/admin-ajax.php',
+          'method': 'POST',
+          'data': {
+            'action': 'check_brochure_popup',
+            'fields': e.fields,
+          },
+          success: function(e) {
+            if ($('#brochure-confirm').length && typeof(e.message) !== 'undefined') {
+              $('#brochure-confirm').html(e.message);
+
+              if ($('#brochure-confirm .brochure-popup').length) {
+                $('#brochure-confirm .brochure-popup').addClass('open');
+              }
+            }
+          },
+        });
+      });
+
+      
+    });
+
+  </script>
+
+  <div id="brochure-confirm"></div>
+
+    <div id='notifications'>
+
+
+</div>
+
+
+
+
+<script>
+  $(function() {
+    var isMobile = false;
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      isMobile = true;
+    }
+    if(!isMobile) {
+      if(window.opener && window.opener !== window &&
+        window.name && window.name == "__thinkific-sales-widget-product__") {
+        var url = window.location.href;
+        $(".move-this-party__btn").attr("href", url).attr("target", "_blank").on("click", function() {
+          setTimeout(function() {
+            window.close();
+          }, 500);
+        });
+        $(".move-this-party__container").removeClass("hidden");
+      }
+      $(".close-move-this-party__btn").on("click", function(e) {
+        e.preventDefault();
+        $(".move-this-party__container").addClass("hidden");
+      });
+    }
+  });
+</script>
+<div class='move-this-party__container hidden'>
+<div class='row move-this-party__text'>
+<div class='col-xs-12'>
+We suggest moving this party over to a full size window.
+<br>
+You'll enjoy it way more.
+</div>
+</div>
+<div class='row move-this-party__buttons'>
+<div class='col-xs-4'>
+<a class='close-move-this-party__btn btn pull-left' href='mining-industry-financial-model-valuation.html#'>
+Close
+</a>
+</div>
+<div class='col-xs-8'>
+<a class='move-this-party__btn btn btn-success pull-right' href='mining-industry-financial-model-valuation.html#'>
+Go Fullscreen
+</a>
+</div>
+</div>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+    //We only care about browsers that report themselves as being Chrome
+    //We only apply this when the browser supports the CSS necessary to
+    //mask the plain text.
+    //We only apply this when NOT an SSL connection.
+    var isChromeBrowser = /crmo|chrom(e|ium)/i.test(navigator.userAgent);
+    var supportsCssProperty = '-webkit-text-security' in document.body.style;
+    var isNotSecure = document.location.protocol !== 'https:'
+    if (isChromeBrowser && isNotSecure && supportsCssProperty) {
+      var password_fields = $('input[type="password"]');
+      if (password_fields) {
+        password_fields.attr({type:"text"});
+        password_fields.css("-webkit-text-security", "disc")
+      }
+    }
+  });
+</script>
+
+
+
+<input name='custom-theme-version' type='hidden' value='1.5.4'>
+
+
+    
+
+    <script src="https://cdn-themes.thinkific.com/4670/168856/d1TsfFVuQdyojMVkNCiU_swiper.min.js"></script>
+  </body>
+</html>
+
